@@ -61,17 +61,10 @@ const Footer: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="mx-6 py-10 text-center lg:text-left">
-        <div className="grid grid-1 lg:grid-cols-5 gap-8">
+      <div className="mx-6 py-10 text-center md:text-left">
+        <div className="grid grid-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="">
-            <img
-              src="./moneyline_sportsbook_logo.png"
-              className="sm:h-16 mx-auto"
-              alt=""
-            />
-          </div>
-          <div className="">
-            <h6 className="uppercase font-semibold mb-4 flex justify-center lg:justify-start">
+            <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
               About Company
             </h6>
             <p className="mb-4">
@@ -91,7 +84,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <div className="">
-            <h6 className="uppercase font-semibold mb-4 flex justify-center lg:justify-start">
+            <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
               Legal
             </h6>
             <p className="mb-4">
@@ -111,7 +104,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <div className="">
-            <h6 className="uppercase font-semibold mb-4 flex justify-center lg:justify-start">
+            <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
               Media
             </h6>
             <p className="mb-4">
@@ -131,7 +124,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
           <div className="">
-            <h6 className="uppercase font-semibold mb-4 flex justify-center lg:justify-start">
+            <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
               Download App
             </h6>
             <p className="mb-4">
