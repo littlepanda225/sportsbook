@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
             </h6>
             <p className="mb-4">
               <a href="#!" className="text-gray-600">
-                About-us
+                About Us
               </a>
             </p>
             <p className="mb-4">

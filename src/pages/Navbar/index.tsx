@@ -9,14 +9,37 @@ import {
 import MenuIcon from "../../components/Icons/MenuIcon";
 
 const NavbarComponent: React.FC = () => {
+  const headItems = [
+    {
+      href: "/nba",
+      title: "NBA",
+    },
+    {
+      href: "/ncaafb",
+      title: "NCAAFB",
+    },
+    {
+      href: "/nfl",
+      title: "NFL",
+    },
+    {
+      href: "/nhl",
+      title: "NHL",
+    },
+    {
+      href: "/wnba",
+      title: "WNBA",
+    },
+  ];
+
   useEffect(() => {}, []);
 
   return (
-    <div className="mx-auto w-full py-2 px-4 lg:px-8 lg:py-4 bg-white">
+    <div className="mx-auto w-full pt-2 px-4 lg:px-8 lg:pt-4 bg-white">
       <div className="mx-auto flex items-center justify-center relative">
         <img
           src="./moneyline_sportsbook_logo.png"
-          className="sm:h-12 h-8"
+          className="sm:h-12 h-10"
           alt=""
         />
         <div className="absolute sm:right-2 right-0">
@@ -60,6 +83,17 @@ const NavbarComponent: React.FC = () => {
             </MenuList>
           </Menu>
         </div>
+      </div>
+      <div className="flex md:justify-center justify-start p-2 gap-x-16 overflow-auto">
+        {headItems.map((val, key) => {
+          return (
+            <div className="font-bold hover:text-blue-700 p-1">
+              <a href={val.href} className="flex items-center">
+                {val.title}
+              </a>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
