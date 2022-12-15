@@ -7,8 +7,10 @@ module.exports = withMT({
     extend: {
       colors: {
         'midenite-blue': '#000040',
-        'navy-blue1': '#01005F',
-        'navy-blue2': '#00005D',
+        navy: {
+          blue1: '#01005F',
+          blue2: '#00005D'
+        },
       }
     },
   },

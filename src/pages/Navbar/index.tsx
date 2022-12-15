@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Menu,
   MenuHandler,
   MenuList,
   MenuItem,
-  Button,
 } from "@material-tailwind/react";
 import MenuIcon from "../../components/Icons/MenuIcon";
 
@@ -87,7 +86,7 @@ const NavbarComponent: React.FC = () => {
       <div className="flex md:justify-center justify-start p-2 gap-x-16 overflow-auto">
         {headItems.map((val, key) => {
           return (
-            <div className="font-bold hover:text-blue-700 p-1">
+            <div className="font-bold hover:text-blue-700 p-1" key={key}>
               <a href={val.href} className="flex items-center">
                 {val.title}
               </a>
