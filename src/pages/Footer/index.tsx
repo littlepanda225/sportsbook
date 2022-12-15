@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <SocialBar></SocialBar>
-      <div className="text-center p-6">
+      <div className="text-center p-6 bg-black">
         <span>© 2022 Copyright: </span>
         <a className="font-semibold" href="https://tailwind-elements.com/">
           MoneyLineSportsBook
