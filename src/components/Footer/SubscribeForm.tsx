@@ -17,7 +17,7 @@ const SubscribeForm: React.FC = () => {
               Sing up for newletters
             </span>
             <span className="px-2">
-              Start and end your day with FOS in your inbox
+              Get access to predictions in your inbox
             </span>
           </div>
           <div className="flex items-center justify-center">

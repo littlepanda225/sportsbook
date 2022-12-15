@@ -5,7 +5,7 @@ const SocialBar: React.FC = () => {
           <span>Get connected with us on social networks: </span>
         </div>
         <div className="flex justify-center">
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -22,7 +22,7 @@ const SocialBar: React.FC = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -39,7 +39,7 @@ const SocialBar: React.FC = () => {
               ></path>
             </svg>
           </a>
-          <a href="#!" className="mr-6 text-gray-600">
+          <a href="#!" className="mr-6">
             <svg
               aria-hidden="true"
               focusable="false"

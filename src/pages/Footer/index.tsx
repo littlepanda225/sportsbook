@@ -4,93 +4,70 @@ import SocialBar from "../../components/Footer/SocialBar";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="text-center bg-gray-100 text-gray-600">
+    <footer className="text-center bg-midenite-blue text-gray-300">
       <div className="mx-6 py-10 text-center">
         <div className="grid grid-1 grid-cols-1 lg:grid-cols-4 gap-8">
-          <div className="">
+          <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               About Company
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
+              <a href="#!" className="text-white">
                 About Us
               </a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Advertising
-              </a>
+              <a href="#!">Advertising</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Contact
-              </a>
+              <a href="#!">Contact</a>
             </p>
           </div>
-          <div className="">
+          <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Legal
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Cookie Policy
-              </a>
+              <a href="#!">Cookie Policy</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Terms & Conditions
-              </a>
+              <a href="#!">Terms & Conditions</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Privacy Policy
-              </a>
+              <a href="#!">Privacy Policy</a>
             </p>
           </div>
-          <div className="">
+          <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Media
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                News
-              </a>
+              <a href="#!">News</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Videos
-              </a>
+              <a href="#!">Videos</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Previews
-              </a>
+              <a href="#!">Previews</a>
             </p>
           </div>
-          <div className="">
+          <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Download App
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                IOS
-              </a>
+              <a href="#!">IOS</a>
             </p>
             <p className="mb-4">
-              <a href="#!" className="text-gray-600">
-                Android
-              </a>
+              <a href="#!">Android</a>
             </p>
           </div>
         </div>
       </div>
       <SocialBar></SocialBar>
-      <div className="text-center p-6 bg-gray-200">
+      <div className="text-center p-6">
         <span>© 2022 Copyright: </span>
-        <a
-          className="text-gray-600 font-semibold"
-          href="https://tailwind-elements.com/"
-        >
+        <a className="font-semibold" href="https://tailwind-elements.com/">
           MoneyLineSportsBook
         </a>
       </div>
