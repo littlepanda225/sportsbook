@@ -133,13 +133,28 @@ const NavbarComponent: React.FC = () => {
           </button>
         </div>
         <div className="flex flex-col">
-          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2">
+          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4">
             Menu
           </div>
           {menuItem.map((val, key) => {
             return (
               <div
-                className="text-gray-300 text-left font-semibold py-2 ml-4 cursor-pointer"
+                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer"
+                key={key}
+              >
+                <a href={val.href}>{val.title}</a>
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex flex-col">
+          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4">
+            SPORTS
+          </div>
+          {headItems.map((val, key) => {
+            return (
+              <div
+                className="text-gray-300 text-left font-semibold py-2 ml-4 px-8 cursor-pointer"
                 key={key}
               >
                 <a href={val.href}>{val.title}</a>
