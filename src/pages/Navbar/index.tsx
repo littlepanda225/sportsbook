@@ -59,7 +59,7 @@ const NavbarComponent: React.FC = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="mx-auto w-full bg-white">
+    <div className="mx-auto w-full fixed top-0">
       <div className="mx-auto flex items-center justify-center relative py-2">
         <img
           src="./moneyline_sportsbook_logo.png"
@@ -120,7 +120,7 @@ const NavbarComponent: React.FC = () => {
         </div>
       </div>
       <div
-        className={`transform w-60 z-40 h-full absolute top-0 px-2 bg-midenite-blue shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out ${
+        className={`transform w-60 z-40 h-full fixed top-0 px-2 bg-midenite-blue shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out overflow-scroll ${
           showResponsiveBar ? "" : "-translate-x-60"
         }`}
       >
@@ -154,9 +154,10 @@ const NavbarComponent: React.FC = () => {
           {headItems.map((val, key) => {
             return (
               <div
-                className="text-gray-300 text-left font-semibold py-2 ml-4 px-8 cursor-pointer"
+                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex"
                 key={key}
               >
+                <img src={`/${val.title}.png`} className="h-8 w-8" alt="" />
                 <a href={val.href}>{val.title}</a>
               </div>
             );
