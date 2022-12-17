@@ -21,6 +21,10 @@ const NavbarComponent: React.FC = () => {
       title: "NCAAFB",
     },
     {
+      href: "/ncaam",
+      title: "NCAAM",
+    },
+    {
       href: "/nfl",
       title: "NFL",
     },
@@ -60,7 +64,7 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <div className="mx-auto w-full fixed top-0">
-      <div className="mx-auto flex items-center justify-center relative py-2">
+      <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img
           src="./moneyline_sportsbook_logo.png"
           className="sm:h-12 h-10"
@@ -104,13 +108,18 @@ const NavbarComponent: React.FC = () => {
         </div>
       </div>
       <div className="hidden sm:block">
-        <div className="flex sm:justify-center justify-start p-2 gap-x-16 overflow-auto bg-midenite-blue">
+        <div className="flex sm:justify-center justify-start p-2 gap-x-6 overflow-auto bg-midenite-blue">
           {headItems.map((val, key) => {
             return (
               <div
-                className="text-white font-bold hover:text-blue-700 p-1"
+                className="text-white font-bold hover:text-blue-700 p-1 flex"
                 key={key}
               >
+                <img
+                  src={`/${val.title}.png`}
+                  className="h-6 w-6 mr-2"
+                  alt=""
+                />
                 <a href={val.href} className="flex items-center">
                   {val.title}
                 </a>
@@ -132,7 +141,7 @@ const NavbarComponent: React.FC = () => {
             <CloseIcon width={25} height={25} color="#FFFFFF" />
           </button>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-2">
           <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
             Menu
           </div>
