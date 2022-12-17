@@ -8,13 +8,28 @@ const SocialBar: React.FC = () => {
         </div>
         <div className="flex justify-center">
           <a href="#!" className="mr-6">
-            <FaceBookIcon width={15} height={15} color="white" />
+            <FaceBookIcon
+              width={15}
+              height={15}
+              color="white"
+              className="hover-effect"
+            />
           </a>
           <a href="#!" className="mr-6">
-            <TwitterIcon width={15} height={15} color="white" />
+            <TwitterIcon
+              width={15}
+              height={15}
+              color="white"
+              className="hover-effect"
+            />
           </a>
           <a href="#!" className="mr-6">
-            <InstagramIcon width={15} height={15} color="white" />
+            <InstagramIcon
+              width={15}
+              height={15}
+              color="white"
+              className="hover-effect"
+            />
           </a>
         </div>
       </div>

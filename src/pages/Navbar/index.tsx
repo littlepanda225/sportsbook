@@ -82,7 +82,7 @@ const NavbarComponent: React.FC = () => {
           <Menu
             animate={{
               mount: { y: 0 },
-              unmount: { y: 50 },
+              unmount: { y: 30 },
             }}
           >
             <MenuHandler>

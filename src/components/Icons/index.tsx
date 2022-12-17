@@ -4,6 +4,7 @@ import AngleRightIcon from "./AngleRightIcon";
 import FaceBookIcon from "./FacebookIcon";
 import TwitterIcon from "./TwitterIcon";
 import InstagramIcon from "./Instagram";
+import './index.css';
 
 export {
   CloseIcon,

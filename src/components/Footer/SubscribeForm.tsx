@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CloseIcon, AngleRightIcon } from "../Icons";
 
 const SubscribeForm: React.FC = () => {
-  const [show, setShow] = useState<boolean>(true);
+  const [show, setShow] = useState<boolean>(false);
 
   const onClose = () => {
     setShow(!show);
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShow(true);
+    }, 1000);
+  }, [])
 
   return (
     <div
