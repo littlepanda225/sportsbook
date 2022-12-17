@@ -36,23 +36,23 @@ const NavbarComponent: React.FC = () => {
   const menuItem = [
     {
       href: "/home",
-      title: "Home",
+      title: "HOME",
     },
     {
       href: "/signup",
-      title: "Sing Up",
+      title: "SIGN UP",
     },
     {
       href: "/login",
-      title: "Login",
+      title: "LOGIN",
     },
     {
       href: "/odds",
-      title: "Odds",
+      title: "ODDS",
     },
     {
       href: "/news",
-      title: "News",
+      title: "NEWS",
     },
   ];
 
@@ -133,7 +133,7 @@ const NavbarComponent: React.FC = () => {
           </button>
         </div>
         <div className="flex flex-col">
-          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4">
+          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
             Menu
           </div>
           {menuItem.map((val, key) => {
@@ -148,16 +148,16 @@ const NavbarComponent: React.FC = () => {
           })}
         </div>
         <div className="flex flex-col">
-          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4">
+          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
             SPORTS
           </div>
           {headItems.map((val, key) => {
             return (
               <div
-                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex"
+                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex items-center"
                 key={key}
               >
-                <img src={`/${val.title}.png`} className="h-8 w-8" alt="" />
+                <img src={`/${val.title}.png`} className="h-6 w-6 mr-4" alt="" />
                 <a href={val.href}>{val.title}</a>
               </div>
             );

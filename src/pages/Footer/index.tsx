@@ -12,54 +12,54 @@ const Footer: React.FC = () => {
               About Company
             </h6>
             <p className="mb-4">
-              <a href="#!" className="text-white">
+              <a href="/about" className="text-white hover:text-blue-500">
                 About Us
               </a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Advertising</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/advertising">Advertising</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Contact</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/contact">Contact</a>
             </p>
           </div>
           <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Legal
             </h6>
-            <p className="mb-4">
-              <a href="#!">Cookie Policy</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/cookie">Cookie Policy</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Terms & Conditions</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/terms">Terms & Conditions</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Privacy Policy</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/privacy">Privacy Policy</a>
             </p>
           </div>
           <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Media
             </h6>
-            <p className="mb-4">
-              <a href="#!">News</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/news">News</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Videos</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/videos">Videos</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Previews</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/previews">Previews</a>
             </p>
           </div>
           <div>
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Download App
             </h6>
-            <p className="mb-4">
-              <a href="#!">IOS</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/ios">IOS</a>
             </p>
-            <p className="mb-4">
-              <a href="#!">Android</a>
+            <p className="mb-4 hover:text-blue-500">
+              <a href="/android">Android</a>
             </p>
           </div>
         </div>
