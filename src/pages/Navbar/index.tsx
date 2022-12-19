@@ -142,7 +142,7 @@ const NavbarComponent: React.FC = () => {
           </button>
         </div>
         <div className="flex flex-col mb-2">
-          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
+          <div className="text-gray-200 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
             Menu
           </div>
           {menuItem.map((val, key) => {
@@ -157,7 +157,7 @@ const NavbarComponent: React.FC = () => {
           })}
         </div>
         <div className="flex flex-col">
-          <div className="text-gray-300 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
+          <div className="text-gray-200 text-left font-semibold bg-[#ffffff12] py-2 px-4 mb-2">
             SPORTS
           </div>
           {headItems.map((val, key) => {
