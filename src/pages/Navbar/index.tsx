@@ -5,12 +5,11 @@ import {
   MenuList,
   MenuItem,
 } from "@material-tailwind/react";
-import { useLocation } from "react-router-dom";
 import { MenuIcon, CloseIcon } from "../../components/Icons";
+import { NavLink } from "react-router-dom";
 
 const NavbarComponent: React.FC = () => {
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
-  const location = useLocation();
   const headItems = [
     {
       href: "/nba",
@@ -97,9 +96,13 @@ const NavbarComponent: React.FC = () => {
                     className="hover:bg-[#ffffff12] hover:text-white"
                     key={key}
                   >
-                    <a href={val.href} className="flex items-center">
+                    <NavLink
+                      to={val.href}
+                      type="button"
+                      className="flex items-center"
+                    >
                       {val.title}
-                    </a>
+                    </NavLink>
                   </MenuItem>
                 );
               })}
@@ -108,7 +111,7 @@ const NavbarComponent: React.FC = () => {
         </div>
       </div>
       <div className="hidden sm:block">
-        <div className="flex sm:justify-center justify-start p-2 gap-x-6 overflow-auto bg-midenite-blue">
+        <div className="flex sm:justify-center justify-start p-2 md:gap-x-10 gap-x-6 overflow-auto bg-midenite-blue">
           {headItems.map((val, key) => {
             return (
               <div
@@ -120,9 +123,13 @@ const NavbarComponent: React.FC = () => {
                   className="h-6 w-6 mr-2"
                   alt=""
                 />
-                <a href={val.href} className="flex items-center">
+                <NavLink
+                  to={val.href}
+                  className="flex items-center"
+                  type="button"
+                >
                   {val.title}
-                </a>
+                </NavLink>
               </div>
             );
           })}
@@ -151,7 +158,9 @@ const NavbarComponent: React.FC = () => {
                 className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer"
                 key={key}
               >
-                <a href={val.href}>{val.title}</a>
+                <NavLink to={val.href} type="button">
+                  {val.title}
+                </NavLink>
               </div>
             );
           })}
@@ -166,8 +175,14 @@ const NavbarComponent: React.FC = () => {
                 className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex items-center"
                 key={key}
               >
-                <img src={`/${val.title}.png`} className="h-6 w-6 mr-4" alt="" />
-                <a href={val.href}>{val.title}</a>
+                <img
+                  src={`/${val.title}.png`}
+                  className="h-6 w-6 mr-4"
+                  alt=""
+                />
+                <NavLink to={val.href} type="button">
+                  {val.title}
+                </NavLink>
               </div>
             );
           })}
