@@ -7,6 +7,7 @@ import NBAPage from "./pages/NBA";
 import PrivacyPage from "./pages/Privacy";
 import CookiePage from "./pages/Cookie";
 import AboutPage from "./pages/About";
+import WNBAPage from "./pages/WNBA";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPage />}></Route>
         <Route path="/cookie" element={<CookiePage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
+        <Route path="/wnba" element={<WNBAPage />}></Route>
       </Routes>
       <Footer />
     </>

@@ -35,6 +35,10 @@ const NavbarComponent: React.FC = () => {
       href: "/wnba",
       title: "WNBA",
     },
+    {
+      href: "/new",
+      title: "NEW",
+    },
   ];
   const menuItem = [
     {
