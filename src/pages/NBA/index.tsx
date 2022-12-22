@@ -4,7 +4,7 @@ import { Widgets } from "./Widget.js";
 import { API_SERVER_URL, API_KEY } from "../../config.js";
 
 const NBAPage: React.FC = () => {
-  // const [perPage, setPerPage] = useState<number>(3);
+  const [perPage, setPerPage] = useState<number>(10);
   // const [totalCount, setTotalCount] = useState<number>(10);
   // const [currentPage, setCurrentPage] = useState<number>(1);
   const [widgetIDs, setWidgetIDs] = useState<Array<string>>([]);
@@ -17,12 +17,11 @@ const NBAPage: React.FC = () => {
     script.charset = "utf-8";
     window.document.body.appendChild(script);
     // const date = new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
-    const date = "2022-12-15"
-    console.log(date);
+    const date = "2022-12-25";
     const widgets: any[] = [];
     axios
       .get(
-        `${API_SERVER_URL}basketball/v2/events?page=1&count=30&startDate%5Bafter%5D=${date}&api_key=${API_KEY}`
+        `${API_SERVER_URL}basketball/v2/events?page=1&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&api_key=${API_KEY}`
       )
       .then((res) => {
         console.log(res.data.data);
@@ -56,6 +55,29 @@ const NBAPage: React.FC = () => {
           </div>
         );
       })}
+      <blockquote
+        className="q4-game"
+        data-detail="true"
+        data-color-background="01005F"
+        data-color-text="FFFFFF"
+        data-color-high="FFFFFF"
+        data-color-medium="FFFFFF"
+        data-color-low="FFFFFF"
+        data-sport="basketball"
+        data-q4="c2af07e0-8208-4bc8-a7fa-76827cb91b3e"
+      >
+        <span>
+          The Cleveland Cavaliers have a forecast 61% chance to win against The
+          Dallas Mavericks with a spread of -3.5/3.5 and an over/under of 234.5.
+          The Cleveland Cavaliers are 1 - 0 against The Dallas Mavericks in the
+          2022-23 Season.
+        </span>
+        &mdash;{" "}
+        <em>Saturday, December 17th Dallas Mavericks @ Cleveland Cavaliers</em>
+      </blockquote>
+      <script
+        src="https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js"
+      ></script>
       {/* Pagination Start */}
       {/* <div className="flex flex-col items-center my-12">
         <div className="flex text-gray-700">
