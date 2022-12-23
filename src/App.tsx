@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/nba" element={<NBAPage />}></Route>
+        <Route path="/nba/:id" element={<NBAPage />}></Route>
         <Route path="/privacy" element={<PrivacyPage />}></Route>
         <Route path="/cookie" element={<CookiePage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>

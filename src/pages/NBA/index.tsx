@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router";
 import { API_SERVER_URL, API_KEY, NBA_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NBAPage: React.FC = () => {
+  const { id } = useParams();
   const [perPage, setPerPage] = useState<number>(10);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(0);
@@ -11,6 +13,19 @@ const NBAPage: React.FC = () => {
   const [widgetIDs, setWidgetIDs] = useState<Array<string>>([]);
 
   const getWidgetByPage = (page: number) => {
+    const quarter4Script = window.document.getElementById("quarter4Script");
+    console.log(quarter4Script);
+    if (quarter4Script && quarter4Script.parentNode) {
+      quarter4Script.parentNode.removeChild(quarter4Script);
+    }
+    const script = document.createElement("script");
+    script.src =
+      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+    script.async = true;
+    script.id = "quarter4Script";
+    script.charset = "utf-8";
+    window.document.body.appendChild(script);
+
     // const date = new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
     const date = "2022-12-25";
     const widgets: any[] = [];
@@ -33,25 +48,17 @@ const NBAPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
-    script.async = true;
-    script.charset = "utf-8";
-    window.document.body.appendChild(script);
-    getWidgetByPage(currentPage);
+    if (id) {
+      setCurrentPage(parseInt(id));
+      getWidgetByPage(parseInt(id));
+    }
   }, []);
 
   const onNext = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    const script = document.createElement("script");
-    script.src =
-      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
-    script.async = true;
-    script.charset = "utf-8";
-    window.document.body.appendChild(script);
+    window.location.href = `/nba/${currentPage + 1}`;
     setCurrentPage(currentPage + 1);
     getWidgetByPage(currentPage + 1);
   };
@@ -60,17 +67,15 @@ const NBAPage: React.FC = () => {
     if (currentPage - 1 === 0) {
       return;
     }
+    window.location.href = `/nba/${currentPage - 1}`;
     setCurrentPage(currentPage - 1);
     getWidgetByPage(currentPage - 1);
   };
 
-  const onFirstPage = () => {
-    setCurrentPage(1);
-  };
-
-  const onLastPage = () => {
-    setCurrentPage(totalPage);
-  };
+  const onPageNumber = (page: number) => {
+    window.location.href = `/nba/${page}`;
+    setCurrentPage(page);
+  }
 
   return (
     <div className="container mx-auto p-2 sm:mt-28 mt-14">
@@ -96,7 +101,7 @@ const NBAPage: React.FC = () => {
         <div className="flex text-gray-700">
           <div
             className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onFirstPage()}
+            onClick={() => onPageNumber(1)}
           >
             <FirstAngle width={15} height={15} />
           </div>
@@ -119,7 +124,10 @@ const NBAPage: React.FC = () => {
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </div>
-          <div className="flex h-12 font-medium rounded-full bg-gray-200">
+          <div
+            className="flex h-12 font-medium rounded-full bg-gray-200"
+            onClick={() => onPageNumber(currentPage - 1)}
+          >
             {currentPage - 1 >= 1 ? (
               <div className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full">
                 {currentPage - 1}
@@ -127,11 +135,17 @@ const NBAPage: React.FC = () => {
             ) : (
               ""
             )}
-            <div className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full bg-teal-600 text-white ">
+            <div
+              className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full bg-teal-600 text-white"
+              onClick={() => onPageNumber(currentPage)}
+            >
               {currentPage}
             </div>
             {currentPage + 1 <= Math.ceil(totalCount / perPage) ? (
-              <div className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full">
+              <div
+                className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full"
+                onClick={() => onPageNumber(currentPage + 1)}
+              >
                 {currentPage + 1}
               </div>
             ) : (
@@ -159,7 +173,7 @@ const NBAPage: React.FC = () => {
           </div>
           <div
             className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onLastPage()}
+            onClick={() => onPageNumber(totalPage)}
           >
             <LastAngle width={15} height={15} />
           </div>
