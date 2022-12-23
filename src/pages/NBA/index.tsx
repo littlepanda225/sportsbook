@@ -64,6 +64,14 @@ const NBAPage: React.FC = () => {
     getWidgetByPage(currentPage - 1);
   };
 
+  const onFirstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const onLastPage = () => {
+    setCurrentPage(totalPage);
+  };
+
   return (
     <div className="container mx-auto p-2 sm:mt-28 mt-14">
       {widgetIDs.map((value, key) => {
@@ -86,7 +94,10 @@ const NBAPage: React.FC = () => {
       {/* Pagination Start */}
       <div className="flex flex-col items-center my-12">
         <div className="flex text-gray-700">
-          <div className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">
+          <div
+            className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+            onClick={() => onFirstPage()}
+          >
             <FirstAngle width={15} height={15} />
           </div>
           <div
@@ -146,7 +157,10 @@ const NBAPage: React.FC = () => {
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </div>
-          <div className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer">
+          <div
+            className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+            onClick={() => onLastPage()}
+          >
             <LastAngle width={15} height={15} />
           </div>
         </div>
