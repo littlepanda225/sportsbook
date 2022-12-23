@@ -13,19 +13,6 @@ const NBAPage: React.FC = () => {
   const [widgetIDs, setWidgetIDs] = useState<Array<string>>([]);
 
   const getWidgetByPage = (page: number) => {
-    const quarter4Script = window.document.getElementById("quarter4Script");
-    console.log(quarter4Script);
-    if (quarter4Script && quarter4Script.parentNode) {
-      quarter4Script.parentNode.removeChild(quarter4Script);
-    }
-    const script = document.createElement("script");
-    script.src =
-      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
-    script.async = true;
-    script.id = "quarter4Script";
-    script.charset = "utf-8";
-    window.document.body.appendChild(script);
-
     // const date = new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
     const date = "2022-12-25";
     const widgets: any[] = [];
@@ -48,6 +35,19 @@ const NBAPage: React.FC = () => {
   };
 
   useEffect(() => {
+    // const quarter4Script = window.document.getElementById("quarter4Script");
+    // console.log(quarter4Script);
+    // if (quarter4Script && quarter4Script.parentNode) {
+    //   quarter4Script.parentNode.removeChild(quarter4Script);
+    // }
+    const script = document.createElement("script");
+    script.src =
+      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+    script.async = true;
+    script.id = "quarter4Script";
+    script.charset = "utf-8";
+    window.document.body.appendChild(script);
+
     if (id) {
       setCurrentPage(parseInt(id));
       getWidgetByPage(parseInt(id));
