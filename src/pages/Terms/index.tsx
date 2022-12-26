@@ -7,7 +7,7 @@ const TermsPage: React.FC = () => {
         "Company")
       </p>
       <p className="text-xl italic">
-        Version: 1.1 – Last update 19th of December 2022
+        Version: 1.1 - Last update 19th of December 2022
       </p>
     </div>
   );
