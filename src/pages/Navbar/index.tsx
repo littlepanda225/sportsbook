@@ -12,7 +12,7 @@ const NavbarComponent: React.FC = () => {
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
   const headItems = [
     {
-      href: "/nba",
+      href: "/nba/1",
       title: "NBA",
     },
     {
@@ -119,7 +119,7 @@ const NavbarComponent: React.FC = () => {
           {headItems.map((val, key) => {
             return (
               <div
-                className="text-white font-bold hover:text-blue-700 p-1 flex"
+                className="text-white font-bold hover:text-green-500 p-1 flex"
                 key={key}
               >
                 <img

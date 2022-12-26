@@ -12,14 +12,14 @@ const Footer: React.FC = () => {
               About Company
             </h6>
             <p className="mb-4">
-              <a href="/about" className="text-white hover:text-blue-500">
+              <a href="/about" className="text-white hover:text-green-500">
                 About Us
               </a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/advertising">Advertising</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/contact">Contact</a>
             </p>
           </div>
@@ -27,13 +27,13 @@ const Footer: React.FC = () => {
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Legal
             </h6>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/cookie">Cookie Policy</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/terms">Terms & Conditions</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/privacy">Privacy Policy</a>
             </p>
           </div>
@@ -41,13 +41,13 @@ const Footer: React.FC = () => {
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Media
             </h6>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/news">News</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/videos">Videos</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/previews">Previews</a>
             </p>
           </div>
@@ -55,10 +55,10 @@ const Footer: React.FC = () => {
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               Download App
             </h6>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/ios">IOS</a>
             </p>
-            <p className="mb-4 hover:text-blue-500">
+            <p className="mb-4 hover:text-green-500">
               <a href="/android">Android</a>
             </p>
           </div>

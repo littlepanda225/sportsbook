@@ -6,6 +6,7 @@ import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NBAPage: React.FC = () => {
   const { id } = useParams();
+  const [loading, setLoading] = useState<boolean>(false);
   const [perPage, setPerPage] = useState<number>(10);
   const [totalCount, setTotalCount] = useState<number>(0);
   const [totalPage, setTotalPage] = useState<number>(0);
@@ -13,6 +14,7 @@ const NBAPage: React.FC = () => {
   const [widgetIDs, setWidgetIDs] = useState<Array<string>>([]);
 
   const getWidgetByPage = (page: number) => {
+    setLoading(true);
     // const date = new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
     const date = "2022-12-25";
     const widgets: any[] = [];
@@ -26,8 +28,8 @@ const NBAPage: React.FC = () => {
         res.data.data.map((value: any, key: number) => {
           widgets.push(value.attributes.uuid);
         });
-        console.log(widgets);
         setWidgetIDs(widgets);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -75,27 +77,39 @@ const NBAPage: React.FC = () => {
   const onPageNumber = (page: number) => {
     window.location.href = `/nba/${page}`;
     setCurrentPage(page);
-  }
+  };
 
   return (
     <div className="container mx-auto p-2 sm:mt-28 mt-14">
-      {widgetIDs.map((value, key) => {
-        return (
-          <div className="my-8" key={key}>
-            <blockquote
-              className="q4-game"
-              data-detail="true"
-              data-color-background="01005F"
-              data-color-text="FFFFFF"
-              data-color-high="FFFFFF"
-              data-color-medium="FFFFFF"
-              data-color-low="FFFFFF"
-              data-sport="basketball"
-              data-q4={value}
-            ></blockquote>
+      {loading ? (
+        <div className="h-screen bg-white">
+          <div className="flex justify-center items-center h-full">
+            <img
+              className="h-16 w-16"
+              src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif"
+              alt=""
+            />
           </div>
-        );
-      })}
+        </div>
+      ) : (
+        widgetIDs.map((value, key) => {
+          return (
+            <div className="my-8" key={key}>
+              <blockquote
+                className="q4-game"
+                data-detail="true"
+                data-color-background="01005F"
+                data-color-text="FFFFFF"
+                data-color-high="FFFFFF"
+                data-color-medium="FFFFFF"
+                data-color-low="FFFFFF"
+                data-sport="basketball"
+                data-q4={value}
+              ></blockquote>
+            </div>
+          );
+        })
+      )}
       {/* Pagination Start */}
       <div className="flex flex-col items-center my-12">
         <div className="flex text-gray-700">

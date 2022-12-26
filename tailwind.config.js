@@ -4,6 +4,14 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      circle: 'circle',
+      roman: 'upper-roman',
+    },
     extend: {
       colors: {
         'midenite-blue': '#000040',
