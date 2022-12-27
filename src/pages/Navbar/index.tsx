@@ -16,23 +16,23 @@ const NavbarComponent: React.FC = () => {
       title: "NBA",
     },
     {
-      href: "/ncaafb",
+      href: "/ncaafb/1",
       title: "NCAAFB",
     },
     {
-      href: "/ncaam",
+      href: "/ncaam/1",
       title: "NCAAM",
     },
     {
-      href: "/nfl",
+      href: "/nfl/1",
       title: "NFL",
     },
     {
-      href: "/nhl",
+      href: "/nhl/1",
       title: "NHL",
     },
     {
-      href: "/wnba",
+      href: "/wnba/1",
       title: "WNBA",
     },
     {

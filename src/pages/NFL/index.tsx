@@ -23,6 +23,7 @@ const NFLPage = () => {
         `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NFL_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
+        console.log(res);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
@@ -37,14 +38,9 @@ const NFLPage = () => {
   };
 
   useEffect(() => {
-    // const quarter4Script = window.document.getElementById("quarter4Script");
-    // console.log(quarter4Script);
-    // if (quarter4Script && quarter4Script.parentNode) {
-    //   quarter4Script.parentNode.removeChild(quarter4Script);
-    // }
     const script = document.createElement("script");
     script.src =
-      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+      "https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
     script.async = true;
     script.id = "quarter4Script";
     script.charset = "utf-8";
@@ -110,6 +106,28 @@ const NFLPage = () => {
           );
         })
       )}
+      <blockquote
+        className="q4-game"
+        data-detail="true"
+        data-color-background="01005F"
+        data-color-text="FFFFFF"
+        data-color-high="FFFFFF"
+        data-color-medium="FFFFFF"
+        data-color-low="FFFFFF"
+        data-sport="american-football"
+        data-q4="6ec3f0aa-c85c-458e-bee1-d97204f644e1"
+      >
+        <span>
+          The San Francisco 49ers have a forecast 51% chance to win against The
+          Seattle Seahawks with a spread of -0.5/0.5 and an over/under of 40.5.
+          The San Francisco 49ers are 1 - 0 against The Seattle Seahawks in the
+          2022-23 Season.
+        </span>
+        &mdash;{" "}
+        <em>Thursday, December 15th San Francisco 49ers @ Seattle Seahawks</em>
+      </blockquote>
+      <script src="https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js"></script>
+
       {/* Pagination Start */}
       <div className="flex flex-col items-center my-12">
         <div className="flex text-gray-700">

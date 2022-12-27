@@ -23,7 +23,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/wnba" element={<WNBAPage />}></Route>
-        <Route path="/nfl" element={<NFLPage />}></Route>
+        <Route path="/nfl/:id" element={<NFLPage />}></Route>
       </Routes>
       <Footer />
     </>
