@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import SubscribeForm from "../../components/Footer/SubscribeForm";
 import SocialBar from "../../components/Footer/SocialBar";
 
@@ -11,16 +12,14 @@ const Footer: React.FC = () => {
             <h6 className="uppercase font-semibold mb-4 flex justify-center">
               About Company
             </h6>
-            <p className="mb-4">
-              <a href="/about" className="text-white hover:text-green-500">
-                About Us
-              </a>
+            <p className="mb-4 hover:text-green-500">
+              <NavLink to="/about">About Us</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/advertising">Advertising</a>
+              <NavLink to="/advertising">Advertising</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/contact">Contact</a>
+              <NavLink to="/contact">Contact</NavLink>
             </p>
           </div>
           <div>
@@ -28,13 +27,13 @@ const Footer: React.FC = () => {
               Legal
             </h6>
             <p className="mb-4 hover:text-green-500">
-              <a href="/cookie">Cookie Policy</a>
+              <NavLink to="/cookie">Cookie Policy</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/terms">Terms & Conditions</a>
+              <NavLink to="/terms">Terms & Conditions</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/privacy">Privacy Policy</a>
+              <NavLink to="/privacy">Privacy Policy</NavLink>
             </p>
           </div>
           <div>
@@ -42,13 +41,13 @@ const Footer: React.FC = () => {
               Media
             </h6>
             <p className="mb-4 hover:text-green-500">
-              <a href="/news">News</a>
+              <NavLink to="/news">News</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/videos">Videos</a>
+              <NavLink to="/videos">Videos</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/previews">Previews</a>
+              <NavLink to="/previews">Previews</NavLink>
             </p>
           </div>
           <div>
@@ -56,10 +55,11 @@ const Footer: React.FC = () => {
               Download App
             </h6>
             <p className="mb-4 hover:text-green-500">
+              <NavLink to="/ios">IOS</NavLink>
               <a href="/ios">IOS</a>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <a href="/android">Android</a>
+              <NavLink to="/android">Android</NavLink>
             </p>
           </div>
         </div>
