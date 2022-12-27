@@ -8,6 +8,7 @@ import PrivacyPage from "./pages/Privacy";
 import CookiePage from "./pages/Cookie";
 import AboutPage from "./pages/About";
 import WNBAPage from "./pages/WNBA";
+import NFLPage from "./pages/NFL";
 import TermsPage from "./pages/Terms";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/terms" element={<TermsPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/wnba" element={<WNBAPage />}></Route>
+        <Route path="/nfl" element={<NFLPage />}></Route>
       </Routes>
       <Footer />
     </>
