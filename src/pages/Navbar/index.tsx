@@ -69,7 +69,7 @@ const NavbarComponent: React.FC = () => {
     <div className="mx-auto w-full fixed top-0">
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img
-          src="./moneyline_sportsbook_logo.png"
+          src="/moneyline_sportsbook_logo.png"
           className="sm:h-12 h-10"
           alt=""
         />

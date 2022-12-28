@@ -143,21 +143,21 @@ const NBAPage: React.FC = () => {
             onClick={() => onPageNumber(currentPage - 1)}
           >
             {currentPage - 1 >= 1 ? (
-              <div className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full">
+              <div className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full">
                 {currentPage - 1}
               </div>
             ) : (
               ""
             )}
             <div
-              className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full bg-teal-600 text-white"
+              className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-teal-600 text-white"
               onClick={() => onPageNumber(currentPage)}
             >
               {currentPage}
             </div>
             {currentPage + 1 <= Math.ceil(totalCount / perPage) ? (
               <div
-                className="w-12 md:flex justify-center items-center hidden  cursor-pointer leading-5 transition duration-150 ease-in  rounded-full"
+                className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
                 onClick={() => onPageNumber(currentPage + 1)}
               >
                 {currentPage + 1}
