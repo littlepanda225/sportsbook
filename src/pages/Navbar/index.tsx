@@ -122,16 +122,16 @@ const NavbarComponent: React.FC = () => {
                 className="text-white font-bold hover:text-green-500 p-1 flex"
                 key={key}
               >
-                <img
-                  src={`/${val.title}.png`}
-                  className="h-6 w-6 mr-2"
-                  alt=""
-                />
                 <NavLink
                   to={val.href}
                   className="flex items-center"
                   type="button"
                 >
+                  <img
+                    src={`/${val.title}.png`}
+                    className="h-6 w-6 mr-2"
+                    alt=""
+                  />
                   {val.title}
                 </NavLink>
               </div>
@@ -179,12 +179,12 @@ const NavbarComponent: React.FC = () => {
                 className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex items-center"
                 key={key}
               >
-                <img
-                  src={`/${val.title}.png`}
-                  className="h-6 w-6 mr-4"
-                  alt=""
-                />
                 <NavLink to={val.href} type="button">
+                  <img
+                    src={`/${val.title}.png`}
+                    className="h-6 w-6 mr-4"
+                    alt=""
+                  />
                   {val.title}
                 </NavLink>
               </div>

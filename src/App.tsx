@@ -7,9 +7,10 @@ import NBAPage from "./pages/NBA";
 import PrivacyPage from "./pages/Privacy";
 import CookiePage from "./pages/Cookie";
 import AboutPage from "./pages/About";
+import TermsPage from "./pages/Terms";
 import WNBAPage from "./pages/WNBA";
 import NFLPage from "./pages/NFL";
-import TermsPage from "./pages/Terms";
+import NHLPage from "./pages/NHL";
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/nba/:id" element={<NBAPage />}></Route>
         <Route path="/privacy" element={<PrivacyPage />}></Route>
         <Route path="/cookie" element={<CookiePage />}></Route>
         <Route path="/terms" element={<TermsPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/wnba" element={<WNBAPage />}></Route>
         <Route path="/nfl/:id" element={<NFLPage />}></Route>
+        <Route path="/nba/:id" element={<NBAPage />}></Route>
+        <Route path="/nhl/:id" element={<NHLPage />}></Route>
       </Routes>
       <Footer />
     </>

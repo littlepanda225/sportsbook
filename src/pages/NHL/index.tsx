@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { API_SERVER_URL, API_KEY, NFL_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
-const NFLPage: React.FC = () => {
+const NHLPage: React.FC = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [perPage, setPerPage] = useState<number>(10);
@@ -194,4 +194,4 @@ const NFLPage: React.FC = () => {
   );
 };
 
-export default NFLPage;
+export default NHLPage;
