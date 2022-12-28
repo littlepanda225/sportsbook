@@ -14,7 +14,7 @@ module.exports = withMT({
     },
     extend: {
       colors: {
-        'midenite-blue': '#000040',
+        'midenight-blue': '#000040',
         navy: {
           blue1: '#01005F',
           blue2: '#00005D'

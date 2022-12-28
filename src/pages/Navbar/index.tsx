@@ -93,7 +93,7 @@ const NavbarComponent: React.FC = () => {
                 <MenuIcon width={24} height={24}></MenuIcon>
               </button>
             </MenuHandler>
-            <MenuList className="bg-midenite-blue text-white">
+            <MenuList className="bg-midenight-blue text-white">
               {menuItem.map((val, key) => {
                 return (
                   <MenuItem
@@ -115,7 +115,7 @@ const NavbarComponent: React.FC = () => {
         </div>
       </div>
       <div className="hidden sm:block">
-        <div className="flex sm:justify-center justify-start p-2 md:gap-x-10 gap-x-6 overflow-auto bg-midenite-blue">
+        <div className="flex sm:justify-center justify-start p-2 md:gap-x-10 gap-x-6 overflow-auto bg-midenight-blue">
           {headItems.map((val, key) => {
             return (
               <div
@@ -140,7 +140,7 @@ const NavbarComponent: React.FC = () => {
         </div>
       </div>
       <div
-        className={`transform w-60 z-40 h-full fixed top-0 px-2 bg-midenite-blue shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out overflow-scroll ${
+        className={`transform w-60 z-40 h-full fixed top-0 px-2 bg-midenight-blue shadow md:h-full flex-col justify-between sm:hidden transition duration-150 ease-in-out overflow-scroll ${
           showResponsiveBar ? "" : "-translate-x-60"
         }`}
       >

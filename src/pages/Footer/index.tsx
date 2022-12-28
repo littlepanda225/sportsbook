@@ -5,7 +5,7 @@ import SocialBar from "../../components/Footer/SocialBar";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="text-center bg-midenite-blue text-gray-300">
+    <footer className="text-center bg-midenight-blue text-gray-300">
       <div className="mx-6 py-10 text-center">
         <div className="grid grid-1 grid-cols-1 lg:grid-cols-4 gap-8">
           <div>

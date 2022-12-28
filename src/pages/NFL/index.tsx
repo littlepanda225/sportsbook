@@ -56,7 +56,7 @@ const NFLPage = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    window.location.href = `/nba/${currentPage + 1}`;
+    window.location.href = `/nfl/${currentPage + 1}`;
     setCurrentPage(currentPage + 1);
     getWidgetByPage(currentPage + 1);
   };
@@ -65,13 +65,13 @@ const NFLPage = () => {
     if (currentPage - 1 === 0) {
       return;
     }
-    window.location.href = `/nba/${currentPage - 1}`;
+    window.location.href = `/nfl/${currentPage - 1}`;
     setCurrentPage(currentPage - 1);
     getWidgetByPage(currentPage - 1);
   };
 
   const onPageNumber = (page: number) => {
-    window.location.href = `/nba/${page}`;
+    window.location.href = `/nfl/${page}`;
     setCurrentPage(page);
   };
 
@@ -99,35 +99,13 @@ const NFLPage = () => {
                 data-color-high="FFFFFF"
                 data-color-medium="FFFFFF"
                 data-color-low="FFFFFF"
-                data-sport="basketball"
+                data-sport="american-football"
                 data-q4={value}
               ></blockquote>
             </div>
           );
         })
       )}
-      <blockquote
-        className="q4-game"
-        data-detail="true"
-        data-color-background="01005F"
-        data-color-text="FFFFFF"
-        data-color-high="FFFFFF"
-        data-color-medium="FFFFFF"
-        data-color-low="FFFFFF"
-        data-sport="american-football"
-        data-q4="6ec3f0aa-c85c-458e-bee1-d97204f644e1"
-      >
-        <span>
-          The San Francisco 49ers have a forecast 51% chance to win against The
-          Seattle Seahawks with a spread of -0.5/0.5 and an over/under of 40.5.
-          The San Francisco 49ers are 1 - 0 against The Seattle Seahawks in the
-          2022-23 Season.
-        </span>
-        &mdash;{" "}
-        <em>Thursday, December 15th San Francisco 49ers @ Seattle Seahawks</em>
-      </blockquote>
-      <script src="https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js"></script>
-
       {/* Pagination Start */}
       <div className="flex flex-col items-center my-12">
         <div className="flex text-gray-700">
