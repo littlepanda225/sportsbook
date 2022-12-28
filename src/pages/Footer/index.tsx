@@ -56,7 +56,6 @@ const Footer: React.FC = () => {
             </h6>
             <p className="mb-4 hover:text-green-500">
               <NavLink to="/ios">IOS</NavLink>
-              <a href="/ios">IOS</a>
             </p>
             <p className="mb-4 hover:text-green-500">
               <NavLink to="/android">Android</NavLink>
