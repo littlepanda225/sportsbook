@@ -42,7 +42,6 @@ const NFLPage: React.FC = () => {
     script.src =
       "https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
     script.async = true;
-    script.id = "quarter4Script";
     script.charset = "utf-8";
     window.document.body.appendChild(script);
 
@@ -134,12 +133,12 @@ const NFLPage: React.FC = () => {
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </div>
-          <div
-            className="flex h-12 font-medium rounded-full bg-gray-200"
-            onClick={() => onPageNumber(currentPage - 1)}
-          >
+          <div className="flex h-12 font-medium rounded-full bg-gray-200">
             {currentPage - 1 >= 1 ? (
-              <div className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full">
+              <div
+                className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
+                onClick={() => onPageNumber(currentPage - 1)}
+              >
                 {currentPage - 1}
               </div>
             ) : (

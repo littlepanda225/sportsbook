@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { API_SERVER_URL, API_KEY, NFL_UUID } from "../../config.js";
+import { API_SERVER_URL, API_KEY, NHL_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NHLPage: React.FC = () => {
@@ -20,10 +20,9 @@ const NHLPage: React.FC = () => {
     const widgets: any[] = [];
     axios
       .get(
-        `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NFL_UUID}&api_key=${API_KEY}`
+        `${API_SERVER_URL}hockey/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NHL_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
-        console.log(res);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
@@ -40,12 +39,11 @@ const NHLPage: React.FC = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+      "https://api.quarter4.io/hockey/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
     script.async = true;
-    script.id = "quarter4Script";
     script.charset = "utf-8";
     window.document.body.appendChild(script);
-
+    console.log(id);
     if (id) {
       setCurrentPage(parseInt(id));
       getWidgetByPage(parseInt(id));
@@ -56,7 +54,7 @@ const NHLPage: React.FC = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    window.location.href = `/nfl/${currentPage + 1}`;
+    window.location.href = `/nhl/${currentPage + 1}`;
     setCurrentPage(currentPage + 1);
     getWidgetByPage(currentPage + 1);
   };
@@ -65,14 +63,15 @@ const NHLPage: React.FC = () => {
     if (currentPage - 1 === 0) {
       return;
     }
-    window.location.href = `/nfl/${currentPage - 1}`;
+    window.location.href = `/nhl/${currentPage - 1}`;
     setCurrentPage(currentPage - 1);
     getWidgetByPage(currentPage - 1);
   };
 
   const onPageNumber = (page: number) => {
-    window.location.href = `/nfl/${page}`;
-    setCurrentPage(page);
+    console.log(page);
+    console.log(`/nhl/${page}`);
+    window.location.href = `/nhl/${page}`;
   };
 
   return (
@@ -99,7 +98,7 @@ const NHLPage: React.FC = () => {
                 data-color-high="FFFFFF"
                 data-color-medium="FFFFFF"
                 data-color-low="FFFFFF"
-                data-sport="american-football"
+                data-sport="hockey"
                 data-q4={value}
               ></blockquote>
             </div>
@@ -134,12 +133,12 @@ const NHLPage: React.FC = () => {
               <polyline points="15 18 9 12 15 6"></polyline>
             </svg>
           </div>
-          <div
-            className="flex h-12 font-medium rounded-full bg-gray-200"
-            onClick={() => onPageNumber(currentPage - 1)}
-          >
+          <div className="flex h-12 font-medium rounded-full bg-gray-200">
             {currentPage - 1 >= 1 ? (
-              <div className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full">
+              <div
+                className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
+                onClick={() => onPageNumber(currentPage - 1)}
+              >
                 {currentPage - 1}
               </div>
             ) : (
