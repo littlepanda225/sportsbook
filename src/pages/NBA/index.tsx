@@ -44,9 +44,13 @@ const NBAPage: React.FC = () => {
     script.charset = "utf-8";
     window.document.body.appendChild(script);
 
+    console.log(id);
     if (id) {
       setCurrentPage(parseInt(id));
       getWidgetByPage(parseInt(id));
+    } else {
+      setCurrentPage(1);
+      getWidgetByPage(1);
     }
   }, []);
 
