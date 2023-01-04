@@ -191,7 +191,9 @@ const WNBAPage: React.FC = () => {
         </div>
       ) : (
         <div className="text-center p-4" style={{ minHeight: "400px" }}>
-          <p className="font-bold text-3xl mt-32">Not found the game</p>
+          <p className="font-bold text-3xl mt-32">
+            WNBA is not available at the moment
+          </p>
         </div>
       )}
     </div>
