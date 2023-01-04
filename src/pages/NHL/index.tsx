@@ -73,10 +73,7 @@ const NHLPage: React.FC = () => {
   };
 
   return (
-    <div
-      className="container mx-auto p-2 sm:mt-28 mt-14"
-      style={{ minHeight: "400px" }}
-    >
+    <div className="container mx-auto p-2 sm:mt-28 mt-14">
       {loading ? (
         <div className="h-screen bg-white">
           <div className="flex justify-center items-center h-full">
