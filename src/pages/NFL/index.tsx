@@ -15,15 +15,19 @@ const NFLPage: React.FC = () => {
 
   const getWidgetByPage = (page: number) => {
     setLoading(true);
-    // const date = new Date().getFullYear() + '-' + (new Date().getMonth()+1) + '-' + new Date().getDate();
-    const date = "2022-12-25";
+    const date =
+      new Date().getFullYear() +
+      "-" +
+      (new Date().getMonth() + 1) +
+      "-" +
+      new Date().getDate();
+    // const date = "2022-12-25";
     const widgets: any[] = [];
     axios
       .get(
         `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NFL_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
-        console.log(res);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
@@ -56,8 +60,6 @@ const NFLPage: React.FC = () => {
       return;
     }
     window.location.href = `/nfl/${currentPage + 1}`;
-    setCurrentPage(currentPage + 1);
-    getWidgetByPage(currentPage + 1);
   };
 
   const onPrevious = () => {
@@ -65,13 +67,10 @@ const NFLPage: React.FC = () => {
       return;
     }
     window.location.href = `/nfl/${currentPage - 1}`;
-    setCurrentPage(currentPage - 1);
-    getWidgetByPage(currentPage - 1);
   };
 
   const onPageNumber = (page: number) => {
     window.location.href = `/nfl/${page}`;
-    setCurrentPage(page);
   };
 
   return (
@@ -86,109 +85,115 @@ const NFLPage: React.FC = () => {
             />
           </div>
         </div>
-      ) : (
-        widgetIDs.map((value, key) => {
-          return (
-            <div className="my-8" key={key}>
-              <blockquote
-                className="q4-game"
-                data-detail="true"
-                data-color-background="01005F"
-                data-color-text="FFFFFF"
-                data-color-high="FFFFFF"
-                data-color-medium="FFFFFF"
-                data-color-low="FFFFFF"
-                data-sport="american-football"
-                data-q4={value}
-              ></blockquote>
-            </div>
-          );
-        })
-      )}
-      {/* Pagination Start */}
-      <div className="flex flex-col items-center my-12">
-        <div className="flex text-gray-700">
-          <div
-            className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onPageNumber(1)}
-          >
-            <FirstAngle width={15} height={15} />
-          </div>
-          <div
-            className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onPrevious()}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-chevron-left w-6 h-6"
-            >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </div>
-          <div className="flex h-12 font-medium rounded-full bg-gray-200">
-            {currentPage - 1 >= 1 ? (
-              <div
-                className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
-                onClick={() => onPageNumber(currentPage - 1)}
-              >
-                {currentPage - 1}
+      ) : totalCount > 0 ? (
+        <div>
+          {widgetIDs.map((value, key) => {
+            return (
+              <div className="my-8" key={key}>
+                <blockquote
+                  className="q4-game"
+                  data-detail="true"
+                  data-color-background="01005F"
+                  data-color-text="FFFFFF"
+                  data-color-high="FFFFFF"
+                  data-color-medium="FFFFFF"
+                  data-color-low="FFFFFF"
+                  data-sport="american-football"
+                  data-q4={value}
+                ></blockquote>
               </div>
-            ) : (
-              ""
-            )}
-            <div
-              className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-teal-600 text-white"
-              onClick={() => onPageNumber(currentPage)}
-            >
-              {currentPage}
-            </div>
-            {currentPage + 1 <= Math.ceil(totalCount / perPage) ? (
+            );
+          })}
+          {/* Pagination Start */}
+          <div className="flex flex-col items-center my-12">
+            <div className="flex text-gray-700">
               <div
-                className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
-                onClick={() => onPageNumber(currentPage + 1)}
+                className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+                onClick={() => onPageNumber(1)}
               >
-                {currentPage + 1}
+                <FirstAngle width={15} height={15} />
               </div>
-            ) : (
-              ""
-            )}
+              <div
+                className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+                onClick={() => onPrevious()}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-chevron-left w-6 h-6"
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </div>
+              <div className="flex h-12 font-medium rounded-full bg-gray-200">
+                {currentPage - 1 >= 1 ? (
+                  <div
+                    className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
+                    onClick={() => onPageNumber(currentPage - 1)}
+                  >
+                    {currentPage - 1}
+                  </div>
+                ) : (
+                  ""
+                )}
+                <div
+                  className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full bg-teal-600 text-white"
+                  onClick={() => onPageNumber(currentPage)}
+                >
+                  {currentPage}
+                </div>
+                {currentPage + 1 <= Math.ceil(totalCount / perPage) ? (
+                  <div
+                    className="w-12 flex justify-center items-center cursor-pointer leading-5 transition duration-150 ease-in rounded-full"
+                    onClick={() => onPageNumber(currentPage + 1)}
+                  >
+                    {currentPage + 1}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div
+                className="h-12 w-12 ml-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+                onClick={() => onNext()}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="100%"
+                  height="100%"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="feather feather-chevron-right w-6 h-6"
+                >
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </div>
+              <div
+                className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
+                onClick={() => onPageNumber(totalPage)}
+              >
+                <LastAngle width={15} height={15} />
+              </div>
+            </div>
           </div>
-          <div
-            className="h-12 w-12 ml-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onNext()}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-chevron-right w-6 h-6"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </div>
-          <div
-            className="h-12 w-12 mr-1 flex justify-center items-center rounded-full bg-gray-200 cursor-pointer"
-            onClick={() => onPageNumber(totalPage)}
-          >
-            <LastAngle width={15} height={15} />
-          </div>
+          {/* Pagination End */}
         </div>
-      </div>
-      {/* Pagination End */}
+      ) : (
+        <div className="text-center p-4">
+          <p className="font-bold text-3xl">Not found the game</p>
+        </div>
+      )}
     </div>
   );
 };
