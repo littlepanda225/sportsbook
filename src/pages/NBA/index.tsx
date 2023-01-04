@@ -193,8 +193,8 @@ const NBAPage: React.FC = () => {
           {/* Pagination End */}
         </div>
       ) : (
-        <div className="text-center p-4">
-          <p className="font-bold text-3xl">Not found the game</p>
+        <div className="text-center p-4" style={{ minHeight: "400px" }}>
+          <p className="font-bold text-3xl mt-32">Not found the game</p>
         </div>
       )}
     </div>

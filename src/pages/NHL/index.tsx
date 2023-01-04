@@ -73,7 +73,10 @@ const NHLPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-2 sm:mt-28 mt-14">
+    <div
+      className="container mx-auto p-2 sm:mt-28 mt-14"
+      style={{ minHeight: "400px" }}
+    >
       {loading ? (
         <div className="h-screen bg-white">
           <div className="flex justify-center items-center h-full">
@@ -189,8 +192,8 @@ const NHLPage: React.FC = () => {
           {/* Pagination End */}
         </div>
       ) : (
-        <div className="text-center p-4">
-          <p className="font-bold text-3xl">Not found the game</p>
+        <div className="text-center p-4" style={{ minHeight: "400px" }}>
+          <p className="font-bold text-3xl mt-32">Not found the game</p>
         </div>
       )}
     </div>
