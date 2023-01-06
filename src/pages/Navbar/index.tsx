@@ -14,30 +14,37 @@ const NavbarComponent: React.FC = () => {
     {
       href: "/nba/1",
       title: "NBA",
+      iconURL: "NBA.png",
     },
     {
       href: "/ncaafb/1",
       title: "NCAAFB",
+      iconURL: "NCAAFB.png",
     },
     {
       href: "/ncaam/1",
       title: "NCAAM",
+      iconURL: "NCAAM.png",
     },
     {
       href: "/nfl/1",
       title: "NFL",
+      iconURL: "NFL.png",
     },
     {
       href: "/nhl/1",
       title: "NHL",
+      iconURL: "NHL.png",
     },
     {
       href: "/wnba/1",
       title: "WNBA",
+      iconURL: "WNBA.png",
     },
     {
       href: "/news",
       title: "NEWS",
+      iconURL: "NEWS.svg",
     },
   ];
   const menuItem = [
@@ -128,7 +135,7 @@ const NavbarComponent: React.FC = () => {
                   type="button"
                 >
                   <img
-                    src={`/${val.title}.png`}
+                    src={`/${val.iconURL}`}
                     className="h-6 w-6 mr-2"
                     alt=""
                   />
@@ -181,7 +188,7 @@ const NavbarComponent: React.FC = () => {
               >
                 <NavLink to={val.href} type="button">
                   <img
-                    src={`/${val.title}.png`}
+                    src={`/${val.iconURL}`}
                     className="h-6 w-6 mr-4"
                     alt=""
                   />
