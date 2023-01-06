@@ -1,7 +1,8 @@
 const AboutPage: React.FC = () => {
   return (
     <div className="container mx-auto p-2 sm:mt-28 mt-14">
-      <p className="text-xl font-bold">
+      <p className="text-4xl font-bold mb-2">About Moneyline Sports</p>
+      <p className="text-xl">
         Moneyline Sports is a multimedia platform and brand purpose built to
         take the FOMO out of sports highlights and betting for fans everywhere.
         The Moneyline Sports platform seeks to guide fans and sports bettors
