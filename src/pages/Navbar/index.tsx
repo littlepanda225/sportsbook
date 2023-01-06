@@ -183,12 +183,12 @@ const NavbarComponent: React.FC = () => {
           {headItems.map((val, key) => {
             return (
               <div
-                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer flex items-center"
+                className="text-gray-300 text-left font-semibold py-2 px-8 cursor-pointer"
                 key={key}
               >
-                <NavLink to={val.href} type="button">
+                <NavLink className="flex" to={val.href} type="button">
                   <img
-                    src={`/${val.iconURL}`}
+                    src={`/assets/icons/${val.iconURL}`}
                     className="h-6 w-6 mr-4"
                     alt=""
                   />
