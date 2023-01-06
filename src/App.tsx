@@ -11,6 +11,7 @@ import TermsPage from "./pages/Terms";
 import WNBAPage from "./pages/WNBA";
 import NFLPage from "./pages/NFL";
 import NHLPage from "./pages/NHL";
+import NCAAFBPage from "./pages/NCAAFB";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/nfl/:id" element={<NFLPage />}></Route>
         <Route path="/nba/:id" element={<NBAPage />}></Route>
         <Route path="/nhl/:id" element={<NHLPage />}></Route>
+        <Route path="/ncaafb/:id" element={<NCAAFBPage />}></Route>
       </Routes>
       <Footer />
     </>
