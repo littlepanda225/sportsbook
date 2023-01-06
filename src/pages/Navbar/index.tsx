@@ -135,7 +135,7 @@ const NavbarComponent: React.FC = () => {
                   type="button"
                 >
                   <img
-                    src={`/${val.iconURL}`}
+                    src={`/assets/icons/${val.iconURL}`}
                     className="h-6 w-6 mr-2"
                     alt=""
                   />
