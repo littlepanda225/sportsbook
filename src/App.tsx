@@ -13,6 +13,7 @@ import NFLPage from "./pages/NFL";
 import NHLPage from "./pages/NHL";
 import NCAAFBPage from "./pages/NCAAFB";
 import NCAAMPage from "./pages/NCAAM";
+import NewsPage from "./pages/News";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/cookie" element={<CookiePage />}></Route>
         <Route path="/terms" element={<TermsPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
+        <Route path="/news" element={<NewsPage />}></Route>
         <Route path="/wnba/:id" element={<WNBAPage />}></Route>
         <Route path="/nfl/:id" element={<NFLPage />}></Route>
         <Route path="/nba/:id" element={<NBAPage />}></Route>
