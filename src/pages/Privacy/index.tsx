@@ -1,14 +1,14 @@
 const PrivacyPage: React.FC = () => {
   return (
     <div className="container mx-auto p-4 sm:mt-28 mt-14">
-      <p className="text-4xl font-bold mb-2">Privacy Policy</p>
+      <p className="text-4xl font-bold mb-4 mt-16">Privacy Policy</p>
       <p className="text-2xl font-bold">
         Privacy Policy of Money Line Sports Inc. (the "Company")
       </p>
       <p className="text-xl italic">
         Version: 1.1 - Last update 19th of December 2022
       </p>
-      <div className="mt-4">
+      <div className="mt-4 mb-16">
         <ul className="list-decimal ml-12">
           <p className="text-xl font-bold -ml-12 mt-4">
             Privacy Policy (Customers)

@@ -25,7 +25,7 @@ const NCAAMPage: React.FC = () => {
     const widgets: any[] = [];
     axios
       .get(
-        `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAM_UUID}&api_key=${API_KEY}`
+        `${API_SERVER_URL}basketball/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAM_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
         console.log(res);
@@ -45,7 +45,7 @@ const NCAAMPage: React.FC = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "https://api.quarter4.io/american-football/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
     script.async = true;
     script.charset = "utf-8";
     window.document.body.appendChild(script);
@@ -99,7 +99,7 @@ const NCAAMPage: React.FC = () => {
                   data-color-high="FFFFFF"
                   data-color-medium="FFFFFF"
                   data-color-low="FFFFFF"
-                  data-sport="american-football"
+                  data-sport="basketball"
                   data-q4={value}
                 ></blockquote>
               </div>
