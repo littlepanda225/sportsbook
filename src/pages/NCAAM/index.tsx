@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
-import { API_SERVER_URL, API_KEY, NCAAFB_UUID } from "../../config.js";
+import { API_SERVER_URL, API_KEY, NCAAM_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
-const NCAAFBPage: React.FC = () => {
+const NCAAMPage: React.FC = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [perPage, setPerPage] = useState<number>(10);
@@ -25,7 +25,7 @@ const NCAAFBPage: React.FC = () => {
     const widgets: any[] = [];
     axios
       .get(
-        `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAFB_UUID}&api_key=${API_KEY}`
+        `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAM_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
         console.log(res);
@@ -60,18 +60,18 @@ const NCAAFBPage: React.FC = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    window.location.href = `/ncaafb/${currentPage + 1}`;
+    window.location.href = `/ncaam/${currentPage + 1}`;
   };
 
   const onPrevious = () => {
     if (currentPage - 1 === 0) {
       return;
     }
-    window.location.href = `/ncaafb/${currentPage - 1}`;
+    window.location.href = `/ncaam/${currentPage - 1}`;
   };
 
   const onPageNumber = (page: number) => {
-    window.location.href = `/ncaafb/${page}`;
+    window.location.href = `/ncaam/${page}`;
   };
 
   return (
@@ -193,7 +193,7 @@ const NCAAFBPage: React.FC = () => {
       ) : (
         <div className="text-center p-4" style={{ minHeight: "400px" }}>
           <p className="font-bold text-3xl mt-32">
-            NCAAFB is not available at the moment
+            NCAAM is not available at the moment
           </p>
         </div>
       )}
@@ -201,4 +201,4 @@ const NCAAFBPage: React.FC = () => {
   );
 };
 
-export default NCAAFBPage;
+export default NCAAMPage;
