@@ -21,7 +21,6 @@ const NHLPage: React.FC = () => {
       (new Date().getMonth() + 1) +
       "-" +
       new Date().getDate();
-    // const date = "2022-12-25";
     const widgets: any[] = [];
     axios
       .get(

@@ -21,7 +21,6 @@ const WNBAPage: React.FC = () => {
       (new Date().getMonth() + 1) +
       "-" +
       new Date().getDate();
-    // const date = "2022-06-05";
     const widgets: any[] = [];
     axios
       .get(
