@@ -1,12 +1,6 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
+import { Card } from "@material-tailwind/react";
 import { getSourceMapRange } from "typescript";
 
 const Home: React.FC = () => {
@@ -26,16 +20,16 @@ const Home: React.FC = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [])
+  }, []);
 
   const goNewLink = (url: string) => {
     window.open(url);
   };
 
   return (
-    <div className="p-12 mt-20">
-      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-4">
-        <div className="col-span-3 p-4">
+    <div className="mt-20">
+      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-12">
+        <div className="col-span-3 p-4 border-r-2 border-gray-500">
           {/* <img
             width="100%"
             src="https://frontofficesports.com/wp-content/uploads/2023/01/FOS-PM-23-1.10-NFL-Sponsor-Revenue-1024x683.jpg"
@@ -50,7 +44,7 @@ const Home: React.FC = () => {
           />
         </div>
         <div className="col-span-2">
-          {feeds.map((val, key) => {
+          {feeds.slice(0, 3).map((val, key) => {
             return (
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
