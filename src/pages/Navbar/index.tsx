@@ -6,9 +6,10 @@ import {
   MenuItem,
 } from "@material-tailwind/react";
 import { MenuIcon, CloseIcon } from "../../components/Icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const NavbarComponent: React.FC = () => {
+    const navigate = useNavigate();
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
   const headItems = [
     {
@@ -72,12 +73,17 @@ const NavbarComponent: React.FC = () => {
 
   useEffect(() => {}, []);
 
+  const onLogo = () => {
+    navigate('/');
+  }
+
   return (
     <div className="mx-auto w-full fixed top-0">
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img
+          onClick={() => onLogo()}
           src="/moneyline_sportsbook_logo.png"
-          className="sm:h-12 h-10"
+          className="sm:h-12 h-10 cursor-pointer"
           alt=""
         />
         <div className="absolute left-0 block sm:hidden">
