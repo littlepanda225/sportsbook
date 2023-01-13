@@ -7,6 +7,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
+import { getSourceMapRange } from "typescript";
 
 const Home: React.FC = () => {
   const [feeds, setFeeds] = useState<Array<any>>([]);
@@ -27,17 +28,24 @@ const Home: React.FC = () => {
       });
   }, [])
 
-  const onNews = (url: string) => {
+  const goNewLink = (url: string) => {
     window.open(url);
-  }
+  };
 
   return (
     <div className="p-12 mt-20">
       <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-4">
         <div className="col-span-3 p-4">
-          <img
+          {/* <img
             width="100%"
             src="https://frontofficesports.com/wp-content/uploads/2023/01/FOS-PM-23-1.10-NFL-Sponsor-Revenue-1024x683.jpg"
+            alt="No Img"
+          /> */}
+          <img
+            onClick={() => goNewLink(data.link)}
+            className="cursor-pointer"
+            width="100%"
+            src={data.image}
             alt="No Img"
           />
         </div>
@@ -46,7 +54,11 @@ const Home: React.FC = () => {
             return (
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
-                  <img className="w-52 h-full" src={val.enclosure.link} alt="Not found img" />
+                  <img
+                    className="w-52 h-full"
+                    src={val.enclosure.link}
+                    alt="Not found img"
+                  />
                   {/* <img
                     className="w-52 h-full"
                     src="https://frontofficesports.com/wp-content/uploads/2023/01/FOS-PM-23-1.10-NFL-Sponsor-Revenue-1024x683.jpg"
@@ -56,7 +68,7 @@ const Home: React.FC = () => {
                     <p
                       className="text-xl hover:underline cursor-pointer text-black"
                       onClick={() => {
-                        onNews(val.link);
+                        goNewLink(val.link);
                       }}
                     >
                       {val.title}
