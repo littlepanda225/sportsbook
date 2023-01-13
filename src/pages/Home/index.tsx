@@ -223,12 +223,13 @@ const Home: React.FC = () => {
     axios
       .get(`https://www.espn.com/espn/rss/nba/news`)
       .then((res) => {
+        console.log(res);
         console.log(res.data.items);
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log(RSS);
+    // console.log(RSS);
   }, [])
 
   return (
