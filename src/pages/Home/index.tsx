@@ -220,14 +220,14 @@ const Home: React.FC = () => {
   const [feed, setFeed] = useState<Array<any>>([]);
 
   useEffect(() => {
-    // axios
-    //   .get(`https://www.espn.com/espn/rss/nba/news`)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    axios
+      .get(`https://www.espn.com/espn/rss/nba/news`)
+      .then((res) => {
+        console.log(res.data.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(RSS);
   }, [])
 
