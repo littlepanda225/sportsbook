@@ -45,7 +45,7 @@ const Home: React.FC = () => {
             onClick={() => goNewLink(data.link)}
             className="cursor-pointer"
             width="100%"
-            src={data.image}
+            src={feeds[0]?.enclosure.link}
             alt="No Img"
           />
         </div>
