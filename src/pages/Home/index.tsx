@@ -14,7 +14,6 @@ const Home: React.FC = () => {
       )
       .then((res) => {
         setFeeds(res.data.items);
-        console.log(res.data);
         setData(res.data.feed);
       })
       .catch((err) => {
@@ -27,7 +26,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="mt-20">
+    <div className="mt-28">
       <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-12">
         <div className="col-span-3 p-4 border-r-2 border-gray-500">
           {/* <img
@@ -44,7 +43,7 @@ const Home: React.FC = () => {
           />
         </div>
         <div className="col-span-2">
-          {feeds.slice(0, 3).map((val, key) => {
+          {feeds.slice(1, 4).map((val, key) => {
             return (
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
@@ -53,11 +52,6 @@ const Home: React.FC = () => {
                     src={val.enclosure.link}
                     alt="Not found img"
                   />
-                  {/* <img
-                    className="w-52 h-full"
-                    src="https://frontofficesports.com/wp-content/uploads/2023/01/FOS-PM-23-1.10-NFL-Sponsor-Revenue-1024x683.jpg"
-                    alt=""
-                  /> */}
                   <div className="ml-4 h-32 overflow-hidden">
                     <p
                       className="text-xl hover:underline cursor-pointer text-black"

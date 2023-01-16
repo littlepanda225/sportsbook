@@ -71,7 +71,11 @@ const NavbarComponent: React.FC = () => {
     },
   ];
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.macroaxis.com/widgets/url.jsp?t=42";
+    window.document.body.appendChild(script);
+  }, []);
 
   const onLogo = () => {
     navigate('/');
@@ -79,6 +83,7 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <div className="mx-auto w-full fixed top-0">
+      <div id="my_xss_magic" className="macroaxis-copyright"></div>
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img
           onClick={() => onLogo()}
