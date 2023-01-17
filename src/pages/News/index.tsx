@@ -81,7 +81,7 @@ const NewsPage = () => {
               topStories.slice(0, 5).map((val, key) => {
                 return (
                   <Card className="p-4 static mb-4" key={key}>
-                    <span className="cursor-pointer hover:underline text-xl">{val.title}</span>
+                    <span className="cursor-pointer hover:underline text-xl" onClick={() => goNewLink(val.link)}>{val.title}</span>
                   </Card>
                 );
               })
