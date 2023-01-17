@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "@material-tailwind/react";
+import Carousel from "./Carousel";
 
 const Home: React.FC = () => {
   const [feeds, setFeeds] = useState<Array<any>>([]);
+  const [featuredFeeds, setFeaturedFeeds] = useState<Array<any>>([]);
   const [data, setData] = useState<any>({});
 
   useEffect(() => {
@@ -27,20 +29,20 @@ const Home: React.FC = () => {
   return (
     <div className="sm:mt-28 mt-16">
       <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-12">
-        <div className="col-span-3 p-4 border-r-2 border-gray-500 text-center">
-          <span
-            className="sm:text-3xl text-xl font-bold hover:underline"
-            onClick={() => goNewLink(feeds[0]?.link)}
-          >
-            {feeds[0]?.title}
-          </span>
+        <div className="col-span-3 p-4 border-r-2 border-gray-500 text-left">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
-            className="cursor-pointer mt-4"
+            className="cursor-pointer mb-4"
             width="100%"
             src={feeds[0]?.enclosure.link}
             alt="No Img"
           />
+          <span
+            className="sm:text-5xl text-xl font-bold hover:underline"
+            onClick={() => goNewLink(feeds[0]?.link)}
+          >
+            {feeds[0]?.title}
+          </span>
         </div>
         <div className="col-span-2">
           {feeds.slice(1, 4).map((val, key) => {
@@ -69,9 +71,10 @@ const Home: React.FC = () => {
           })}
         </div>
       </div>
-      <div className="bg-black px-4 py-8">
+      <div className="bg-black px-4 py-8 relative">
         <p className="text-white text-3xl text-bold">Featured</p>
-        <div className="flex flex-wrap justify-center gap-6 border-t-2 border-white py-4">
+        {/* <Carousel></Carousel> */}
+        {/* <div className="flex flex-wrap justify-center gap-6 border-t-2 border-white py-4">
           <img
             src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
             alt=""
@@ -88,7 +91,7 @@ const Home: React.FC = () => {
             src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
