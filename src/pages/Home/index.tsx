@@ -5,7 +5,6 @@ import Carousel from "./Carousel";
 
 const Home: React.FC = () => {
   const [feeds, setFeeds] = useState<Array<any>>([]);
-  const [featuredFeeds, setFeaturedFeeds] = useState<Array<any>>([]);
   const [data, setData] = useState<any>({});
 
   useEffect(() => {

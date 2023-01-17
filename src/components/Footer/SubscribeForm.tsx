@@ -22,7 +22,7 @@ const SubscribeForm: React.FC = () => {
     >
       <div className="hidden lg:block mt-5">
         <span className="text-gray-700 border-r-2 border-solid border-gray-800 font-bold px-2">
-          Sing up for newletters
+          Sign up for newletters
         </span>
         <span className="text-gray-700 px-2">
           Get access to predictions in your inbox

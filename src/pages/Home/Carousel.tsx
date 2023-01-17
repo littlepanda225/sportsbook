@@ -43,6 +43,9 @@ const Carousel = () => {
   }, [currentIndex]);
 
   useEffect(() => {
+    maxScrollWidth.current = carousel.current
+      ? carousel.current.scrollWidth - carousel.current.offsetWidth
+      : 0;
     axios
       .get(
         `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
@@ -53,12 +56,6 @@ const Carousel = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  useEffect(() => {
-    maxScrollWidth.current = carousel.current
-      ? carousel.current.scrollWidth - carousel.current.offsetWidth
-      : 0;
   }, []);
 
   return (
@@ -116,7 +113,7 @@ const Carousel = () => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative sm:w-96 sm:h-96 w-64 h-64 snap-start mx-2"
+                className="carousel-item text-center relative w-64 h-64 snap-start mx-2"
               >
                 <div
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
