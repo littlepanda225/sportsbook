@@ -64,7 +64,7 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="carousel my-4 mx-auto">
+    <div className="carousel py-4 mx-auto border-t-2 border-white">
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
@@ -120,8 +120,7 @@ const Carousel = () => {
                 key={index}
                 className="carousel-item text-center relative w-96 h-96 snap-start mx-2"
               >
-                <a
-                  href={resource.link}
+                <div
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
                   style={{
                     backgroundImage: `url(${resource.enclosure.link || ""})`,
@@ -132,10 +131,12 @@ const Carousel = () => {
                     alt={resource.title}
                     className="w-full aspect-square hidden"
                   />
-                </a>
+                </div>
                 <a
+                  target="_blank"
                   href={resource.link}
                   className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-100 bg-blue-800/75 z-10"
+                  rel="noreferrer"
                 >
                   <h3 className="text-white py-6 px-3 mx-auto text-xl">
                     {resource.title}
