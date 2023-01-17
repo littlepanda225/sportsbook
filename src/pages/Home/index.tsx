@@ -38,7 +38,7 @@ const Home: React.FC = () => {
             alt="No Img"
           />
           <span
-            className="sm:text-5xl text-xl font-bold hover:underline"
+            className="sm:text-5xl text-xl font-bold hover:underline cursor-pointer"
             onClick={() => goNewLink(feeds[0]?.link)}
           >
             {feeds[0]?.title}

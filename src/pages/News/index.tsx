@@ -44,11 +44,11 @@ const NewsPage = () => {
             return (
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
-                    <img
-                      className="h-32 w-40"
-                      src={val.enclosure.link}
-                      alt="Not found img"
-                    />
+                  <img
+                    className="h-32 w-40"
+                    src={val.enclosure.link}
+                    alt="Not found img"
+                  />
                   <div className="ml-4 h-32 overflow-hidden">
                     <p
                       className="text-xl hover:underline cursor-pointer text-black"
@@ -68,24 +68,33 @@ const NewsPage = () => {
         <div className="col-span-2 p-4 border-r-2 border-l-2 border-gray-500">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
-            className="cursor-pointer"
+            className="cursor-pointer mb-4"
             width="100%"
             src={feeds[0]?.enclosure.link}
             alt="No Img"
           />
+          <span
+            className="sm:text-5xl text-xl font-bold hover:underline cursor-pointer"
+            onClick={() => goNewLink(feeds[0]?.link)}
+          >
+            {feeds[0]?.title}
+          </span>
         </div>
         <div className="col-span-1 py-4">
           <span className="text-3xl font-bold">Top Stories</span>
           <div className="border-t-2 border-black mt-2">
-            {
-              topStories.slice(0, 5).map((val, key) => {
-                return (
-                  <Card className="p-4 static mb-4" key={key}>
-                    <span className="cursor-pointer hover:underline text-xl" onClick={() => goNewLink(val.link)}>{val.title}</span>
-                  </Card>
-                );
-              })
-            }
+            {topStories.slice(0, 5).map((val, key) => {
+              return (
+                <Card className="p-4 static mb-4" key={key}>
+                  <span
+                    className="cursor-pointer hover:underline text-xl"
+                    onClick={() => goNewLink(val.link)}
+                  >
+                    {val.title}
+                  </span>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>
