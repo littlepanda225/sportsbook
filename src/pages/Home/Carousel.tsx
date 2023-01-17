@@ -1,59 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import axios from "axios";
 
 const Carousel = () => {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef<HTMLDivElement>(null);
-  // Data
-  const Data = {
-    resources: [
-      {
-        title: "Find me on Twitter",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/any",
-      },
-      {
-        title: "Welcome to Ark Labs",
-        link: "https://ark-labs.co.uk",
-        imageUrl: "https://placeimg.com/300/300/animals",
-      },
-      {
-        title: "Some sort of third title",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/architecture",
-      },
-      {
-        title: "A personal site perhaps?",
-        link: "https://robkendal.co.uk",
-        imageUrl: "https://placeimg.com/300/300/nature",
-      },
-      {
-        title: "Super item number five",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/people",
-      },
-      {
-        title: "Super item number six",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/tech",
-      },
-      {
-        title: "Super item number seven",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/animals",
-      },
-      {
-        title: "Super item number eight",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/people",
-      },
-      {
-        title: "Super item number the last",
-        link: "",
-        imageUrl: "https://placeimg.com/300/300/tech",
-      },
-    ],
-  };
+  const [feeds, setFeeds] = useState<Array<any>>([]);
 
   const movePrev = () => {
     if (currentIndex > 0) {
@@ -62,6 +14,7 @@ const Carousel = () => {
   };
 
   const moveNext = () => {
+    console.log(carousel.current?.offsetWidth);
     if (
       carousel.current !== null &&
       carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
@@ -91,6 +44,20 @@ const Carousel = () => {
   }, [currentIndex]);
 
   useEffect(() => {
+    axios
+      .get(
+        `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
+      )
+      .then((res) => {
+        console.log(res.data.items);
+        setFeeds(res.data.items);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
     maxScrollWidth.current = carousel.current
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
       : 0;
@@ -98,7 +65,7 @@ const Carousel = () => {
 
   return (
     <div className="carousel my-4 mx-auto">
-      <div className="relative overflow-hidden px-10">
+      <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
             onClick={movePrev}
@@ -147,19 +114,21 @@ const Carousel = () => {
           ref={carousel}
           className="carousel-container relative flex gap-1 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
         >
-          {Data.resources.map((resource, index) => {
+          {feeds.map((resource, index) => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative w-96 h-96 snap-start"
+                className="carousel-item text-center relative w-96 h-96 snap-start mx-2"
               >
                 <a
                   href={resource.link}
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
-                  style={{ backgroundImage: `url(${resource.imageUrl || ""})` }}
+                  style={{
+                    backgroundImage: `url(${resource.enclosure.link || ""})`,
+                  }}
                 >
                   <img
-                    src={resource.imageUrl || ""}
+                    src={resource.enclosure.link || ""}
                     alt={resource.title}
                     className="w-full aspect-square hidden"
                   />
