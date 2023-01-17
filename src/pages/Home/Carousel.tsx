@@ -14,7 +14,6 @@ const Carousel = () => {
   };
 
   const moveNext = () => {
-    console.log(carousel.current?.offsetWidth);
     if (
       carousel.current !== null &&
       carousel.current.offsetWidth * currentIndex <= maxScrollWidth.current
@@ -49,7 +48,6 @@ const Carousel = () => {
         `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
       )
       .then((res) => {
-        console.log(res.data.items);
         setFeeds(res.data.items);
       })
       .catch((err) => {
@@ -118,7 +116,7 @@ const Carousel = () => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative w-96 h-96 snap-start mx-2"
+                className="carousel-item text-center relative sm:w-96 sm:h-96 w-64 h-64 snap-start mx-2"
               >
                 <div
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"

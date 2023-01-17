@@ -4,6 +4,7 @@ import { Card } from "@material-tailwind/react";
 
 const NewsPage = () => {
   const [feeds, setFeeds] = useState<Array<any>>([]);
+  const [topStories, setTopStories] = useState<Array<any>>([]);
   const [data, setData] = useState<any>({});
 
   useEffect(() => {
@@ -14,6 +15,17 @@ const NewsPage = () => {
       .then((res) => {
         setFeeds(res.data.items);
         setData(res.data.feed);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(
+        `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
+      )
+      .then((res) => {
+        console.log(res.data.items);
+        setTopStories(res.data.items);
       })
       .catch((err) => {
         console.log(err);
@@ -62,8 +74,19 @@ const NewsPage = () => {
             alt="No Img"
           />
         </div>
-        <div className="col-span-1">
-          <span>abcdef</span>
+        <div className="col-span-1 py-4">
+          <span className="text-3xl font-bold">Top Stories</span>
+          <div className="border-t-2 border-black mt-2">
+            {
+              topStories.slice(0, 5).map((val, key) => {
+                return (
+                  <Card className="p-4 static mb-4" key={key}>
+                    <span className="cursor-pointer hover:underline text-xl">{val.title}</span>
+                  </Card>
+                );
+              })
+            }
+          </div>
         </div>
       </div>
     </div>

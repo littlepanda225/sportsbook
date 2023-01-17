@@ -74,24 +74,6 @@ const Home: React.FC = () => {
       <div className="bg-black px-8 py-8 relative">
         <p className="text-white text-3xl text-bold">Featured</p>
         <Carousel></Carousel>
-        {/* <div className="flex flex-wrap justify-center gap-6 border-t-2 border-white py-4">
-          <img
-            src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
-            alt=""
-          />
-          <img
-            src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
-            alt=""
-          />
-          <img
-            src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
-            alt=""
-          />
-          <img
-            src="https://frontofficesports.com/wp-content/uploads/2022/12/FOS-22-12.27-Tom-Brady-Earnings-300x200.jpg"
-            alt=""
-          />
-        </div> */}
       </div>
     </div>
   );
