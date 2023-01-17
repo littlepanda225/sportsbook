@@ -71,7 +71,7 @@ const Home: React.FC = () => {
           })}
         </div>
       </div>
-      <div className="bg-black px-4 py-8 relative">
+      <div className="bg-black px-8 py-8 relative">
         <p className="text-white text-3xl text-bold">Featured</p>
         <Carousel></Carousel>
         {/* <div className="flex flex-wrap justify-center gap-6 border-t-2 border-white py-4">
