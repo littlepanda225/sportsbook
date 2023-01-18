@@ -1,6 +1,6 @@
 const TermsPage: React.FC = () => {
   return (
-    <div className="container mx-auto p-4 sm:mt-28 mt-14">
+    <div className="container mx-auto p-4">
       <p className="text-4xl font-bold mb-4 mt-16">Terms & Conditions</p>
       <p className="text-2xl font-bold">
         Terms and Conditions of Use of Services of Money Line Sports Inc. (the

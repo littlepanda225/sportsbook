@@ -1,7 +1,7 @@
 const CookiePage: React.FC = () => {
   return (
-    <div className="container mx-auto p-2 sm:mt-28 mt-14">
-      <p className="text-4xl font-bold mb-4 mt-16">Cookie Policy</p>
+    <div className="container mx-auto p-2">
+      <p className="text-4xl font-bold my-4">Cookie Policy</p>
       <p className="text-2xl font-bold">
         Cookie Policy of Money Line Sports Inc. (the "Company")
       </p>

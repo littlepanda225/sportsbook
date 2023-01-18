@@ -74,7 +74,7 @@ const NCAAMPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-2 sm:mt-28 mt-14">
+    <div className="container mx-auto p-2">
       {loading ? (
         <div className="h-screen bg-white">
           <div className="flex justify-center items-center h-full">

@@ -76,8 +76,8 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="sm:mt-28 mt-16">
-      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 p-12">
+    <div className="">
+      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 px-12">
         <div className="col-span-3 p-4 border-r-2 border-gray-500 text-left">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}

@@ -37,8 +37,8 @@ const NewsPage = () => {
   };
 
   return (
-    <div className="mt-28">
-      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 p-12">
+    <div>
+      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 px-12">
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (

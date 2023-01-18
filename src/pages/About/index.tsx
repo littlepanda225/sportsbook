@@ -1,6 +1,6 @@
 const AboutPage: React.FC = () => {
   return (
-    <div className="container mx-auto p-2 sm:mt-28 mt-14">
+    <div className="container mx-auto p-2">
       <div className="py-32" style={{ minHeight: "400px" }}>
         <p className="text-4xl font-bold mb-6">About Moneyline Sports</p>
         <p className="text-xl">
