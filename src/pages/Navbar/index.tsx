@@ -73,8 +73,104 @@ const NavbarComponent: React.FC = () => {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://www.macroaxis.com/widgets/url.jsp?t=42";
-    window.document.body.appendChild(script);
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-tickers.js";
+    script.async = true;
+    script.innerHTML += `
+      {
+      "symbols": [
+        {
+          "proName": "FOREXCOM:SPXUSD",
+          "title": "S&P 500"
+        },
+        {
+          "proName": "FOREXCOM:NSXUSD",
+          "title": "US 100"
+        },
+        {
+          "proName": "FX_IDC:EURUSD",
+          "title": "EUR/USD"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:IBET"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:GAMB"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:TSLA"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:AAPL"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:MSFT"
+        },
+        {
+          "description": "",
+          "proName": "NASDAQ:AMZN"
+        },
+        {
+          "description": "Draft Kings",
+          "proName": "NASDAQ:DKNG"
+        },
+        {
+          "description": "Flutter Entertainment Group",
+          "proName": "LSE:FLTR"
+        },
+        {
+          "description": "",
+          "proName": "AMEX:BETZ"
+        },
+        {
+          "description": "Genius Sports Limited",
+          "proName": "NYSE:GENI"
+        },
+        {
+          "description": "Sports Radar",
+          "proName": "NASDAQ:SRAD"
+        },
+        {
+          "description": "Roundhill Sports Betting & iGaming",
+          "proName": "AMEX:BETZ"
+        },
+        {
+          "description": "fuboTV",
+          "proName": "NYSE:FUBO"
+        },
+        {
+          "description": "Penn National Gaming",
+          "proName": "NASDAQ:PENN"
+        },
+        {
+          "description": "Caesars Entertainment",
+          "proName": "NASDAQ:CZR"
+        },
+        {
+          "description": "MGM Resorts",
+          "proName": "NYSE:MGM"
+        }
+      ],
+      "colorTheme": "dark",
+      "isTransparent": false,
+      "showSymbolLogo": true,
+      "locale": "en"
+    }`;
+    let myContainer = document.getElementsByClassName(
+      "tradingview-widget-container"
+    )[0];
+    const node = myContainer.firstElementChild;
+    node?.appendChild(script);
+
+    return () => {
+      // clean up the script when the component in unmounted
+      node?.removeChild(script);
+    };
   }, []);
 
   const onLogo = () => {
@@ -83,7 +179,17 @@ const NavbarComponent: React.FC = () => {
 
   return (
     <div className="mx-auto w-full top-0 relative">
-      <div id="my_xss_magic" className="macroaxis-copyright"></div>
+      <div className="tradingview-widget-container">
+        <div className="tradingview-widget-container__widget"></div>
+        <div className="tradingview-widget-copyright">
+          <a
+            href="https://www.tradingview.com/markets/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+          </a>
+        </div>
+      </div>
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img
           onClick={() => onLogo()}
