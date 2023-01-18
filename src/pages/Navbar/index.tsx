@@ -77,90 +77,66 @@ const NavbarComponent: React.FC = () => {
       "https://s3.tradingview.com/external-embedding/embed-widget-tickers.js";
     script.async = true;
     script.innerHTML += `
-      {
-      "symbols": [
-        {
-          "proName": "FOREXCOM:SPXUSD",
-          "title": "S&P 500"
-        },
-        {
-          "proName": "FOREXCOM:NSXUSD",
-          "title": "US 100"
-        },
-        {
-          "proName": "FX_IDC:EURUSD",
-          "title": "EUR/USD"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:IBET"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:GAMB"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:TSLA"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:AAPL"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:MSFT"
-        },
-        {
-          "description": "",
-          "proName": "NASDAQ:AMZN"
-        },
-        {
-          "description": "Draft Kings",
-          "proName": "NASDAQ:DKNG"
-        },
-        {
-          "description": "Flutter Entertainment Group",
-          "proName": "LSE:FLTR"
-        },
-        {
-          "description": "",
-          "proName": "AMEX:BETZ"
-        },
-        {
-          "description": "Genius Sports Limited",
-          "proName": "NYSE:GENI"
-        },
-        {
-          "description": "Sports Radar",
-          "proName": "NASDAQ:SRAD"
-        },
-        {
-          "description": "Roundhill Sports Betting & iGaming",
-          "proName": "AMEX:BETZ"
-        },
-        {
-          "description": "fuboTV",
-          "proName": "NYSE:FUBO"
-        },
-        {
-          "description": "Penn National Gaming",
-          "proName": "NASDAQ:PENN"
-        },
-        {
-          "description": "Caesars Entertainment",
-          "proName": "NASDAQ:CZR"
-        },
-        {
-          "description": "MGM Resorts",
-          "proName": "NYSE:MGM"
-        }
-      ],
-      "colorTheme": "dark",
-      "isTransparent": false,
-      "showSymbolLogo": true,
-      "locale": "en"
-    }`;
+          {
+          "symbols": [
+            {
+              "proName": "FOREXCOM:SPXUSD",
+              "title": "S&P 500"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:IBET"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:GAMB"
+            },
+            {
+              "description": "Draft Kings",
+              "proName": "NASDAQ:DKNG"
+            },
+            {
+              "description": "Flutter Entertainment Group",
+              "proName": "LSE:FLTR"
+            },
+            {
+              "description": "",
+              "proName": "AMEX:BETZ"
+            },
+            {
+              "description": "Genius Sports Limited",
+              "proName": "NYSE:GENI"
+            },
+            {
+              "description": "Sports Radar",
+              "proName": "NASDAQ:SRAD"
+            },
+            {
+              "description": "Roundhill Sports Betting & iGaming",
+              "proName": "AMEX:BETZ"
+            },
+            {
+              "description": "fuboTV",
+              "proName": "NYSE:FUBO"
+            },
+            {
+              "description": "Penn National Gaming",
+              "proName": "NASDAQ:PENN"
+            },
+            {
+              "description": "Caesars Entertainment",
+              "proName": "NASDAQ:CZR"
+            },
+            {
+              "description": "MGM Resorts",
+              "proName": "NYSE:MGM"
+            }
+          ],
+          "colorTheme": "dark",
+          "isTransparent": false,
+          "showSymbolLogo": true,
+          "locale": "en"
+        }`;
     let myContainer = document.getElementsByClassName(
       "tradingview-widget-container"
     )[0];
@@ -187,7 +163,9 @@ const NavbarComponent: React.FC = () => {
             rel="noopener noreferrer"
             target="_blank"
           >
+            <span className="blue-text">Markets today </span>
           </a>
+          by TradingView
         </div>
       </div>
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
