@@ -17,15 +17,19 @@ const responsive = {
     items: 5,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 3000, min: 1500 },
     items: 4,
   },
+  desktop2: {
+    breakpoint: { max: 1500, min: 1200 },
+    items: 3,
+  },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1200, min: 640 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 640, min: 0 },
     items: 1,
   },
 };
@@ -67,7 +71,7 @@ const Home: React.FC = () => {
   const CustomDot = ({ active, onClick }: CustomDotProp) => {
     return (
       <button
-        className={`relative mb-8 px-3 py-1 mr-2 bg-blue-500 transition-all hover:px-6 hover:bg-opacity-100 rounded-lg ${
+        className={`relative mb-6 px-3 py-1 mr-2 bg-blue-500 transition-all hover:px-6 hover:bg-opacity-100 rounded-lg ${
           active ? "px-6 bg-opacity-100" : "bg-opacity-70"
         }`}
         onClick={() => onClick()}
@@ -99,7 +103,7 @@ const Home: React.FC = () => {
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
                   <img
-                    className="w-56 my-2"
+                    className="w-56 my-2 aspect-square"
                     src={val.enclosure.link}
                     alt="Not found img"
                   />
@@ -120,7 +124,7 @@ const Home: React.FC = () => {
           })}
         </div>
       </div>
-      <div className="bg-black md:px-36 px-10 py-8 relative">
+      <div className="bg-black md:px-20 lg:px-36 px-10 py-8 relative">
         <p className="text-white text-3xl text-bold">Featured</p>
         {/* <Carousel></Carousel> */}
         <div className="border-top-2 border-white">
@@ -142,7 +146,7 @@ const Home: React.FC = () => {
                     alt=""
                   />
                   <span
-                    className="text-bold md:text-2xl text-lg cursor-pointer hover:underline"
+                    className="text-bold md:text-xl text-lg cursor-pointer hover:underline"
                     onClick={() => goNewLink(val.link)}
                   >
                     {val.title}
