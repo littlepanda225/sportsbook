@@ -9,7 +9,7 @@ import { MenuIcon, CloseIcon } from "../../components/Icons";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const NavbarComponent: React.FC = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
   const headItems = [
     {
@@ -78,11 +78,11 @@ const NavbarComponent: React.FC = () => {
   }, []);
 
   const onLogo = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   return (
-    <div className="mx-auto w-full fixed top-0 relative">
+    <div className="mx-auto w-full top-0 relative">
       <div id="my_xss_magic" className="macroaxis-copyright"></div>
       <div className="bg-white mx-auto flex items-center justify-center relative py-2">
         <img

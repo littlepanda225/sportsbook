@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               <NavLink to="/advertising">Advertising</NavLink>
             </p>
             <p className="mb-4 hover:text-green-500">
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/about">Contact</NavLink>
             </p>
           </div>
           <div>
