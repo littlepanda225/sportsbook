@@ -67,7 +67,7 @@ const Home: React.FC = () => {
   const CustomDot = ({ active, onClick }: CustomDotProp) => {
     return (
       <button
-        className={`relative mb-4 px-3 py-1 mr-2 bg-blue-500 transition-all hover:px-6 hover:bg-opacity-100 rounded-lg ${
+        className={`relative mb-8 px-3 py-1 mr-2 bg-blue-500 transition-all hover:px-6 hover:bg-opacity-100 rounded-lg ${
           active ? "px-6 bg-opacity-100" : "bg-opacity-70"
         }`}
         onClick={() => onClick()}
@@ -123,34 +123,35 @@ const Home: React.FC = () => {
       <div className="bg-black md:px-36 px-10 py-8 relative">
         <p className="text-white text-3xl text-bold">Featured</p>
         {/* <Carousel></Carousel> */}
-        <Carousel
-          showDots
-          responsive={responsive}
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          renderDotsOutside={true}
-          arrows={true}
-          infinite={true}
-          customDot={<CustomDot active={undefined} onClick={undefined} />}
-        >
-          {featuredFeed.map((val, key) => {
-            return (
-              <div key={key} className="text-white m-4">
-                <img
-                  className="w-full h-full aspect-square mb-4"
-                  src={val.enclosure.link}
-                  alt=""
-                />
-                <span
-                  className="text-bold md:text-2xl text-lg cursor-pointer hover:underline"
-                  onClick={() => goNewLink(val.link)}
-                >
-                  {val.title}
-                </span>
-              </div>
-            );
-          })}
-        </Carousel>
-        ;
+        <div className="border-top-2 border-white">
+          <Carousel
+            showDots
+            responsive={responsive}
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            renderDotsOutside={true}
+            arrows={true}
+            infinite={true}
+            customDot={<CustomDot active={undefined} onClick={undefined} />}
+          >
+            {featuredFeed.map((val, key) => {
+              return (
+                <div key={key} className="text-white m-4">
+                  <img
+                    className="w-full h-64 aspect-square mb-4"
+                    src={val.enclosure.link}
+                    alt=""
+                  />
+                  <span
+                    className="text-bold md:text-2xl text-lg cursor-pointer hover:underline"
+                    onClick={() => goNewLink(val.link)}
+                  >
+                    {val.title}
+                  </span>
+                </div>
+              );
+            })}
+          </Carousel>
+        </div>
       </div>
     </div>
   );
