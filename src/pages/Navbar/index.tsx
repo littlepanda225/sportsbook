@@ -13,9 +13,19 @@ const NavbarComponent: React.FC = () => {
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
   const headItems = [
     {
+      href: "/nfl/1",
+      title: "NFL",
+      iconURL: "NFL.png",
+    },
+    {
       href: "/nba/1",
       title: "NBA",
       iconURL: "NBA.png",
+    },
+    {
+      href: "/nhl/1",
+      title: "NHL",
+      iconURL: "NHL.png",
     },
     {
       href: "/ncaafb/1",
@@ -26,16 +36,6 @@ const NavbarComponent: React.FC = () => {
       href: "/ncaam/1",
       title: "NCAAM",
       iconURL: "NCAAM.png",
-    },
-    {
-      href: "/nfl/1",
-      title: "NFL",
-      iconURL: "NFL.png",
-    },
-    {
-      href: "/nhl/1",
-      title: "NHL",
-      iconURL: "NHL.png",
     },
     {
       href: "/wnba/1",
@@ -168,11 +168,11 @@ const NavbarComponent: React.FC = () => {
           by TradingView
         </div>
       </div>
-      <div className="bg-white mx-auto flex items-center justify-center relative py-2">
+      <div className="bg-white mx-auto flex items-center justify-start relative py-2">
         <img
           onClick={() => onLogo()}
           src="/moneyline_sportsbook_logo.png"
-          className="sm:h-12 h-10 cursor-pointer"
+          className="sm:h-12 h-10 cursor-pointer ml-4"
           alt=""
         />
         <div className="absolute left-0 block sm:hidden">
