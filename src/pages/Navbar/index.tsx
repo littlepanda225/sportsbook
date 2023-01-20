@@ -157,16 +157,7 @@ const NavbarComponent: React.FC = () => {
     <div className="mx-auto w-full top-0 relative">
       <div className="tradingview-widget-container">
         <div className="tradingview-widget-container__widget"></div>
-        <div className="tradingview-widget-copyright">
-          <a
-            href="https://www.tradingview.com/markets/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span className="blue-text">Markets today </span>
-          </a>
-          by TradingView
-        </div>
+        <div className="tradingview-widget-copyright"></div>
       </div>
       <div className="bg-white mx-auto flex items-center justify-between relative p-2">
         <img
@@ -175,7 +166,11 @@ const NavbarComponent: React.FC = () => {
           className="sm:h-12 h-10 cursor-pointer sm:ml-4 ml-8"
           alt=""
         />
-        <img className="lg:block hidden mr-20" src="/BANNER.png" alt="Not Found" />
+        <img
+          className="lg:block hidden mr-20"
+          src="/BANNER.png"
+          alt="Not Found"
+        />
         <div className="absolute left-0 block sm:hidden">
           <button
             className="text-black bg-white font-bold p-2 rounded"
