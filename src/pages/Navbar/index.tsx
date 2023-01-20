@@ -153,6 +153,10 @@ const NavbarComponent: React.FC = () => {
     navigate("/");
   };
 
+  const goNewLink = (url: string) => {
+    window.open(url);
+  };
+
   return (
     <div className="mx-auto w-full top-0 relative">
       <div className="tradingview-widget-container">
@@ -167,7 +171,12 @@ const NavbarComponent: React.FC = () => {
           alt=""
         />
         <img
-          className="lg:block hidden mr-20"
+          onClick={() =>
+            goNewLink(
+              "https://promo.nj.betmgm.com/en/promo/geolocator?orh=sports.betmgm.com"
+            )
+          }
+          className="lg:block hidden mr-20 cursor-pointer"
           src="/BANNER.png"
           alt="Not Found"
         />
