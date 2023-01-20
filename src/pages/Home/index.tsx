@@ -69,7 +69,6 @@ const Home: React.FC = () => {
         `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
       )
       .then((res) => {
-        console.log(res.data.items);
         setTopStories(res.data.items);
       })
       .catch((err) => {
@@ -121,7 +120,7 @@ const Home: React.FC = () => {
             );
           })}
         </div>
-        <div className="col-span-2 p-4 border-r-2 border-l-2 border-gray-500">
+        <div className="col-span-2 p-4 px-8 border-r-2 border-l-2 border-gray-500">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
             className="cursor-pointer mb-4"
@@ -130,7 +129,7 @@ const Home: React.FC = () => {
             alt="No Img"
           />
           <span
-            className="sm:text-5xl text-xl font-bold hover:underline cursor-pointer"
+            className="sm:text-4xl text-xl font-bold hover:underline cursor-pointer"
             onClick={() => goNewLink(feeds[0]?.link)}
           >
             {feeds[0]?.title}
@@ -155,37 +154,37 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="bg-black md:px-20 lg:px-36 px-10 py-8 relative">
-        <p className="text-white text-3xl text-bold">Featured</p>
-        {/* <Carousel></Carousel> */}
-        <div className="border-top-2 border-white">
-          <Carousel
-            showDots
-            responsive={responsive}
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            renderDotsOutside={true}
-            arrows={true}
-            infinite={true}
-            customDot={<CustomDot active={undefined} onClick={undefined} />}
-          >
-            {featuredFeed.map((val, key) => {
-              return (
-                <div key={key} className="text-white m-4">
-                  <img
-                    className="w-full h-64 aspect-square mb-4"
-                    src={val.enclosure.link}
-                    alt=""
-                  />
-                  <span
-                    className="text-bold md:text-xl text-lg cursor-pointer hover:underline"
-                    onClick={() => goNewLink(val.link)}
-                  >
-                    {val.title}
-                  </span>
-                </div>
-              );
-            })}
-          </Carousel>
+        <div className="border-b-2 border-white p-2">
+          <p className="text-white text-3xl text-bold">Featured</p>
         </div>
+        {/* <Carousel></Carousel> */}
+        <Carousel
+          showDots
+          responsive={responsive}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+          renderDotsOutside={true}
+          arrows={true}
+          infinite={true}
+          customDot={<CustomDot active={undefined} onClick={undefined} />}
+        >
+          {featuredFeed.map((val, key) => {
+            return (
+              <div key={key} className="text-white m-4">
+                <img
+                  className="w-full h-64 aspect-square mb-4"
+                  src={val.enclosure.link}
+                  alt=""
+                />
+                <span
+                  className="text-bold md:text-xl text-lg cursor-pointer hover:underline"
+                  onClick={() => goNewLink(val.link)}
+                >
+                  {val.title}
+                </span>
+              </div>
+            );
+          })}
+        </Carousel>
       </div>
     </div>
   );

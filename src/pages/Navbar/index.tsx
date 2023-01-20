@@ -168,13 +168,14 @@ const NavbarComponent: React.FC = () => {
           by TradingView
         </div>
       </div>
-      <div className="bg-white mx-auto flex items-center justify-start relative py-2">
+      <div className="bg-white mx-auto flex items-center justify-between relative p-2">
         <img
           onClick={() => onLogo()}
           src="/moneyline_sportsbook_logo.png"
-          className="sm:h-12 h-10 cursor-pointer ml-4"
+          className="sm:h-12 h-10 cursor-pointer sm:ml-4 ml-8"
           alt=""
         />
+        <img className="lg:block hidden mr-20" src="/BANNER.png" alt="Not Found" />
         <div className="absolute left-0 block sm:hidden">
           <button
             className="text-black bg-white font-bold p-2 rounded"
@@ -183,7 +184,7 @@ const NavbarComponent: React.FC = () => {
             <MenuIcon width={24} height={24}></MenuIcon>
           </button>
         </div>
-        <div className="absolute right-0 hidden sm:block">
+        <div className="absolute right-4 hidden sm:block">
           <Menu
             animate={{
               mount: { y: 0 },
