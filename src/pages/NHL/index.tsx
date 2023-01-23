@@ -44,17 +44,23 @@ const NHLPage: React.FC = () => {
   };
 
   useEffect(() => {
+    if (id) {
+      setCurrentPage(parseInt(id));
+      getWidgetByPage(parseInt(id));
+    } else {
+      setCurrentPage(1);
+      getWidgetByPage(1);
+    }
+  }, []);
+
+  useEffect(() => {
     const script = document.createElement("script");
     script.src =
       "https://api.quarter4.io/hockey/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
     script.async = true;
     script.charset = "utf-8";
     window.document.body.appendChild(script);
-    if (id) {
-      setCurrentPage(parseInt(id));
-      getWidgetByPage(parseInt(id));
-    }
-  }, []);
+  }, [widgetIDs]);
 
   const onNext = () => {
     if (currentPage + 1 > totalPage) {

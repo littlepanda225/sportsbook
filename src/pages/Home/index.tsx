@@ -93,11 +93,11 @@ const Home: React.FC = () => {
 
   return (
     <div className="">
-      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 px-12">
+      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 px-40">
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (
-              <Card key={key} className="mb-8 p-4 static">
+              <Card key={key} className="mb-6 p-2 static">
                 <div className="sm:flex text-center sm:text-left p-4">
                   <img
                     className="h-32 w-40"

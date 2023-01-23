@@ -27,6 +27,7 @@ const NBAPage: React.FC = () => {
         `${API_SERVER_URL}basketball/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NBA_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
+        console.log(res.data);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
@@ -44,13 +45,6 @@ const NBAPage: React.FC = () => {
   };
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
-    script.async = true;
-    script.charset = "utf-8";
-    window.document.body.appendChild(script);
-
     if (id) {
       setCurrentPage(parseInt(id));
       getWidgetByPage(parseInt(id));
@@ -59,6 +53,15 @@ const NBAPage: React.FC = () => {
       getWidgetByPage(1);
     }
   }, []);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://api.quarter4.io/basketball/widget/embed/161b7887-e6c0-4445-ba31-658e37076e3f/v1.js";
+    script.async = true;
+    script.charset = "utf-8";
+    window.document.body.appendChild(script);
+  }, [widgetIDs]);
 
   const onNext = () => {
     if (currentPage + 1 > totalPage) {
