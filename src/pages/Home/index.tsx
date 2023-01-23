@@ -93,7 +93,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="">
-      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 px-40">
+      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 px-40">
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (
