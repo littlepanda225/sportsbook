@@ -93,20 +93,20 @@ const Home: React.FC = () => {
 
   return (
     <div className="">
-      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 px-40">
+      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 sm:px-20 md:px-40 px-10">
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (
               <Card key={key} className="mb-6 p-2 static">
                 <div className="sm:flex text-center sm:text-left p-4">
                   <img
-                    className="h-32 w-40"
+                    className="h-32 sm:w-1/2 w-full"
                     src={val.enclosure.link}
                     alt="Not found img"
                   />
                   <div className="ml-4 h-32 overflow-hidden">
                     <p
-                      className="text-xl hover:underline cursor-pointer text-black"
+                      className="text-lg hover:underline cursor-pointer text-black"
                       onClick={() => {
                         goNewLink(val.link);
                       }}
@@ -120,7 +120,7 @@ const Home: React.FC = () => {
             );
           })}
         </div>
-        <div className="col-span-2 p-4 px-8 border-r-2 border-l-2 border-gray-500">
+        <div className="col-span-2 p-4 px-8 2xl:border-r-2 border-r-0 2xl:border-l-2 border-l-0 border-gray-500">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
             className="cursor-pointer mb-4"

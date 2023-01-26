@@ -38,8 +38,8 @@ const NewsPage = () => {
 
   return (
     <div>
-      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 px-40">
-        <div className="col-span-3 p-4 border-r-2 border-gray-500 text-left">
+      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 sm:px-20 md:px-40 px-10">
+        <div className="col-span-3 p-4 2xl:border-r-2 border-r-0 border-gray-500 text-left">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
             className="cursor-pointer mb-4"
@@ -60,7 +60,7 @@ const NewsPage = () => {
               <Card key={key} className="mb-8 p-4 static">
                 <div className="sm:flex text-center sm:text-left p-4">
                   <img
-                    className="w-56 h-40 my-2"
+                    className="2xl:w-56 w-full h-40 my-2"
                     src={val.enclosure.link}
                     alt="Not found img"
                   />
