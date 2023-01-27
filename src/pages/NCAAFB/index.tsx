@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router";
 import { API_SERVER_URL, API_KEY, NCAAFB_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NCAAFBPage: React.FC = () => {
-  const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [perPage, setPerPage] = useState<number>(10);
   const [totalCount, setTotalCount] = useState<number>(0);
@@ -27,7 +25,6 @@ const NCAAFBPage: React.FC = () => {
         `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAFB_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
-        console.log(res);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
@@ -45,14 +42,8 @@ const NCAAFBPage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      setCurrentPage(parseInt(id));
-      getWidgetByPage(parseInt(id));
-    } else {
-      setCurrentPage(1);
-      getWidgetByPage(1);
-    }
-  }, []);
+    getWidgetByPage(currentPage);
+  }, [currentPage]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -67,18 +58,18 @@ const NCAAFBPage: React.FC = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    window.location.href = `/ncaafb/${currentPage + 1}`;
+    setCurrentPage(currentPage + 1);
   };
 
   const onPrevious = () => {
     if (currentPage - 1 === 0) {
       return;
     }
-    window.location.href = `/ncaafb/${currentPage - 1}`;
+    setCurrentPage(currentPage - 1);
   };
 
   const onPageNumber = (page: number) => {
-    window.location.href = `/ncaafb/${page}`;
+    setCurrentPage(page);
   };
 
   return (

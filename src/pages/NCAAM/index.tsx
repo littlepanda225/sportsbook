@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router";
 import { API_SERVER_URL, API_KEY, NCAAM_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NCAAMPage: React.FC = () => {
-  const { id } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [perPage, setPerPage] = useState<number>(10);
   const [totalCount, setTotalCount] = useState<number>(0);
@@ -45,14 +43,8 @@ const NCAAMPage: React.FC = () => {
   };
 
   useEffect(() => {
-    if (id) {
-      setCurrentPage(parseInt(id));
-      getWidgetByPage(parseInt(id));
-    } else {
-      setCurrentPage(1);
-      getWidgetByPage(1);
-    }
-  }, []);
+    getWidgetByPage(currentPage);
+  }, [currentPage]);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -67,18 +59,18 @@ const NCAAMPage: React.FC = () => {
     if (currentPage + 1 > totalPage) {
       return;
     }
-    window.location.href = `/ncaam/${currentPage + 1}`;
+    setCurrentPage(currentPage + 1);
   };
 
   const onPrevious = () => {
     if (currentPage - 1 === 0) {
       return;
     }
-    window.location.href = `/ncaam/${currentPage - 1}`;
+    setCurrentPage(currentPage - 1);
   };
 
   const onPageNumber = (page: number) => {
-    window.location.href = `/ncaam/${page}`;
+    setCurrentPage(page);
   };
 
   return (

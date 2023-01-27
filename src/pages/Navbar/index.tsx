@@ -13,32 +13,32 @@ const NavbarComponent: React.FC = () => {
   const [showResponsiveBar, setShowResponsiveBar] = useState<boolean>(false);
   const headItems = [
     {
-      href: "/nfl/1",
+      href: "/nfl",
       title: "NFL",
       iconURL: "NFL.png",
     },
     {
-      href: "/nba/1",
+      href: "/nba",
       title: "NBA",
       iconURL: "NBA.png",
     },
     {
-      href: "/nhl/1",
+      href: "/nhl",
       title: "NHL",
       iconURL: "NHL.png",
     },
     {
-      href: "/ncaafb/1",
+      href: "/ncaafb",
       title: "NCAAFB",
       iconURL: "NCAAFB.png",
     },
     {
-      href: "/ncaam/1",
+      href: "/ncaam",
       title: "NCAAM",
       iconURL: "NCAAM.png",
     },
     {
-      href: "/wnba/1",
+      href: "/wnba",
       title: "WNBA",
       iconURL: "WNBA.png",
     },

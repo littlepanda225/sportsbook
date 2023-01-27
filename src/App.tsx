@@ -26,12 +26,12 @@ function App() {
         <Route path="/terms" element={<TermsPage />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>
         <Route path="/news" element={<NewsPage />}></Route>
-        <Route path="/wnba/:id" element={<WNBAPage />}></Route>
-        <Route path="/nfl/:id" element={<NFLPage />}></Route>
-        <Route path="/nba/:id" element={<NBAPage />}></Route>
-        <Route path="/nhl/:id" element={<NHLPage />}></Route>
-        <Route path="/ncaafb/:id" element={<NCAAFBPage />}></Route>
-        <Route path="/ncaam/:id" element={<NCAAMPage />}></Route>
+        <Route path="/wnba" element={<WNBAPage />}></Route>
+        <Route path="/nfl" element={<NFLPage />}></Route>
+        <Route path="/nba" element={<NBAPage />}></Route>
+        <Route path="/nhl" element={<NHLPage />}></Route>
+        <Route path="/ncaafb" element={<NCAAFBPage />}></Route>
+        <Route path="/ncaam" element={<NCAAMPage />}></Route>
       </Routes>
       <Footer />
     </>
