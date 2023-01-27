@@ -29,13 +29,13 @@ const NBAPage: React.FC = () => {
       startDate: date,
     };
     axios
-      .post(`${API_SERVER_URL}/api/nfl/getwidgetbypage`, data)
+      .post(`${API_SERVER_URL}/api/nba/getwidgetbypage`, data)
       .then((res) => {
-        console.log(res.data);
         setTotalPage(Math.ceil(res.data.totalCount / perPage));
         setTotalCount(res.data.totalCount);
         res.data.data.map((value: any, key: number) => {
           widgets.push(value.uuid);
+          console.log(value.uuid);
           return true;
         });
         setWidgetIDs(widgets);
