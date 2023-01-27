@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { API_SERVER_URL } from "../../config.js";
+import { API_SERVER_URL, API_KEY, NFL_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const NFLPage: React.FC = () => {
@@ -13,26 +13,24 @@ const NFLPage: React.FC = () => {
 
   const getWidgetByPage = (page: number) => {
     setLoading(true);
-    const currentDate = new Date();
-    const now_utc = Date.UTC(
-      currentDate.getUTCFullYear(),
-      currentDate.getUTCMonth(),
-      currentDate.getUTCDate()
-    );
-    const date = new Date(now_utc).toISOString();
-    const data = {
-      page: page,
-      perPage: perPage,
-      startDate: date,
-    };
+    const date =
+      new Date().getFullYear() +
+      "-" +
+      (new Date().getMonth() + 1) +
+      "-" +
+      new Date().getDate();
     const widgets: any[] = [];
     axios
-      .post(`${API_SERVER_URL}/api/nfl/getwidgetbypage`, data)
+      .get(
+        `${API_SERVER_URL}american-football/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NFL_UUID}&api_key=${API_KEY}`
+      )
       .then((res) => {
-        setTotalPage(Math.ceil(res.data.totalCount / perPage));
-        setTotalCount(res.data.totalCount);
+        setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
+        setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
-          widgets.push(value.uuid);
+          if (value.attributes.eventStatus !== null) {
+            widgets.push(value.attributes.uuid);
+          }
           return true;
         });
         setWidgetIDs(widgets);
