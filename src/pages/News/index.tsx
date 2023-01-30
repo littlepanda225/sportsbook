@@ -13,6 +13,7 @@ const NewsPage = () => {
         `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fespn.com%2Fespn%2Frss%2Fnba%2fnews`
       )
       .then((res) => {
+        console.log(res.data.items);
         setFeeds(res.data.items);
         setData(res.data.feed);
       })
@@ -38,7 +39,7 @@ const NewsPage = () => {
 
   return (
     <div>
-      <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 sm:px-20 md:px-40 px-10">
+      {/* <div className="grid 2xl:grid-cols-5 grid-cols-1 gap-4 my-4 sm:px-20 md:px-40 px-10">
         <div className="col-span-3 p-4 2xl:border-r-2 border-r-0 border-gray-500 text-left">
           <img
             onClick={() => goNewLink(feeds[0]?.link)}
@@ -80,6 +81,49 @@ const NewsPage = () => {
             );
           })}
         </div>
+      </div> */}
+      <div className="grid 2xl:grid-cols-5 grid-cols-4 gap-4 my-4 sm:px-20 md:px-40 px-10">
+        <div className="col-span-4">
+          <div className="grid grid-cols-4 gap-4 h-80 overflow-hidden">
+            <div className="col-span-1">
+              <span
+                className="text-2xl font-bold hover:underline cursor-pointer"
+                onClick={() => goNewLink(feeds[0]?.link)}
+              >
+                {feeds[0]?.title}
+              </span>
+              <br />
+              <span className="text-gray-700">{feeds[0]?.description}</span>
+            </div>
+            <div className="col-span-2">
+              <img
+                onClick={() => goNewLink(feeds[0]?.link)}
+                className="cursor-pointer mb-4 h-full"
+                width="100%"
+                src={feeds[0]?.enclosure.link}
+                alt="No Img"
+              />
+            </div>
+            <div className="col-span-1">
+              <img
+                onClick={() => goNewLink(feeds[0]?.link)}
+                className="cursor-pointer mb-4"
+                width="100%"
+                src={feeds[1]?.enclosure.link}
+                alt="No Img"
+              />
+              <span
+                className="font-bold hover:underline cursor-pointer"
+                onClick={() => goNewLink(feeds[1]?.link)}
+              >
+                {feeds[1]?.title}
+              </span>
+              <br />
+              <span className="text-gray-700">{feeds[1]?.description}</span>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-1">123</div>
       </div>
     </div>
   );
