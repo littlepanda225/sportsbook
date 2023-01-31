@@ -93,13 +93,15 @@ const NewsPage = () => {
               />
             </div>
             <div className="col-span-1">
-              <img
-                onClick={() => goNewLink(feeds[1]?.link)}
-                className="cursor-pointer mb-4"
-                width="100%"
-                src={feeds[1]?.enclosure.link}
-                alt="No Img"
-              />
+              <div className="w-full">
+                <img
+                  onClick={() => goNewLink(feeds[1]?.link)}
+                  className="cursor-pointer mb-4"
+                  width="100%"
+                  src={feeds[1]?.enclosure.link}
+                  alt="No Img"
+                />
+              </div>
               <span
                 className="font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[1]?.link)}
@@ -114,13 +116,14 @@ const NewsPage = () => {
               </span>
             </div>
             <div className="col-span-1">
-              <img
-                onClick={() => goNewLink(feeds[2]?.link)}
-                className="cursor-pointer mb-4"
-                width="100%"
-                src={feeds[2]?.enclosure.link}
-                alt="No Img"
-              />
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  onClick={() => goNewLink(feeds[2]?.link)}
+                  className="cursor-pointer mb-4 w-full min-h-full"
+                  src={feeds[2]?.enclosure.link}
+                  alt="No Img"
+                />
+              </div>
               <span
                 className="font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[2]?.link)}
@@ -129,13 +132,14 @@ const NewsPage = () => {
               </span>
             </div>
             <div className="col-span-1">
-              <img
-                onClick={() => goNewLink(feeds[3]?.link)}
-                className="cursor-pointer mb-4"
-                width="100%"
-                src={feeds[3]?.enclosure.link}
-                alt="No Img"
-              />
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  onClick={() => goNewLink(feeds[3]?.link)}
+                  className="cursor-pointer mb-4 w-full min-h-full"
+                  src={feeds[3]?.enclosure.link}
+                  alt="No Img"
+                />
+              </div>
               <span
                 className="font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[3]?.link)}
@@ -144,13 +148,14 @@ const NewsPage = () => {
               </span>
             </div>
             <div className="col-span-1">
-              <img
-                onClick={() => goNewLink(feeds[4]?.link)}
-                className="cursor-pointer mb-4"
-                width="100%"
-                src={feeds[4]?.enclosure.link}
-                alt="No Img"
-              />
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  onClick={() => goNewLink(feeds[4]?.link)}
+                  className="cursor-pointer mb-4 w-full min-h-full"
+                  src={feeds[4]?.enclosure.link}
+                  alt="No Img"
+                />
+              </div>
               <span
                 className="font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[4]?.link)}
@@ -159,13 +164,14 @@ const NewsPage = () => {
               </span>
             </div>
             <div className="col-span-1">
-              <img
-                onClick={() => goNewLink(feeds[5]?.link)}
-                className="cursor-pointer mb-4"
-                width="100%"
-                src={feeds[5]?.enclosure.link}
-                alt="No Img"
-              />
+              <div className="h-48 w-full overflow-hidden">
+                <img
+                  onClick={() => goNewLink(feeds[5]?.link)}
+                  className="cursor-pointer mb-4 w-full min-h-full"
+                  src={feeds[5]?.enclosure.link}
+                  alt="No Img"
+                />
+              </div>
               <span
                 className="font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[5]?.link)}
@@ -175,7 +181,40 @@ const NewsPage = () => {
             </div>
           </div>
         </div>
-        -<div className="col-span-1">123</div>
+        <div className="col-span-1">
+          <div className="border-b-2 border-gray-600 py-2">
+            <span
+              className="font-bold text-2xl hover:underline cursor-pointer"
+              onClick={() => goNewLink(feeds[5]?.link)}
+            >
+              {feeds[6]?.title}
+            </span>
+          </div>
+          <div className="border-b-2 border-gray-600 py-2">
+            <span
+              className="font-bold text-2xl hover:underline cursor-pointer"
+              onClick={() => goNewLink(feeds[5]?.link)}
+            >
+              {feeds[7]?.title}
+            </span>
+          </div>
+          <div className="border-b-2 border-gray-600 py-2">
+            <span
+              className="font-bold text-2xl hover:underline cursor-pointer"
+              onClick={() => goNewLink(feeds[5]?.link)}
+            >
+              {feeds[8]?.title}
+            </span>
+          </div>
+          <div className="border-b-2 border-gray-600 py-2">
+            <span
+              className="font-bold text-2xl hover:underline cursor-pointer"
+              onClick={() => goNewLink(feeds[5]?.link)}
+            >
+              {feeds[9]?.title}
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

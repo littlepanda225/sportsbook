@@ -99,12 +99,14 @@ const Home: React.FC = () => {
             return (
               <Card key={key} className="mb-6 p-2 static">
                 <div className="sm:flex text-center sm:text-left p-4">
-                  <img
-                    className="h-32 sm:w-1/2 w-full"
-                    src={val.enclosure.link}
-                    alt="Not found img"
-                  />
-                  <div className="ml-4 h-32 overflow-hidden">
+                  <div className="h-36 sm:w-1/2 w-full overflow-hidden relative">
+                    <img
+                      className="min-h-full min-w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                      src={val.enclosure.link}
+                      alt="Not found img"
+                    />
+                  </div>
+                  <div className="ml-4 sm:w-1/2 w-full h-36 overflow-hidden">
                     <p
                       className="text-lg hover:underline cursor-pointer text-black"
                       onClick={() => {
@@ -170,11 +172,13 @@ const Home: React.FC = () => {
           {featuredFeed.map((val, key) => {
             return (
               <div key={key} className="text-white m-4">
-                <img
-                  className="w-full h-64 aspect-square mb-4"
-                  src={val.enclosure.link}
-                  alt=""
-                />
+                <div className="w-full h-80 overflow-hidden relative mb-4">
+                  <img
+                    className="min-h-full w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    src={val.enclosure.link}
+                    alt=""
+                  />
+                </div>
                 <span
                   className="text-bold md:text-xl text-lg cursor-pointer hover:underline"
                   onClick={() => goNewLink(val.link)}
