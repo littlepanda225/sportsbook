@@ -25,7 +25,6 @@ const NCAAMPage: React.FC = () => {
         `${API_SERVER_URL}basketball/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NCAAM_UUID}&api_key=${API_KEY}`
       )
       .then((res) => {
-        console.log(res);
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
