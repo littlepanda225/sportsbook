@@ -27,7 +27,7 @@ const NHLPage: React.FC = () => {
     };
     const widgets: any[] = [];
     axios
-      .post(`${API_SERVER_URL}/api/nfl/getwidgetbypage`, data)
+      .post(`${API_SERVER_URL}/api/nhl/getwidgetbypage`, data)
       .then((res) => {
         setTotalPage(Math.ceil(res.data.totalCount / perPage));
         setTotalCount(res.data.totalCount);
