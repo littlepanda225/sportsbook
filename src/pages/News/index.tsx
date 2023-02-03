@@ -27,10 +27,10 @@ const NewsPage = () => {
 
   return (
     <div>
-      <div className="grid 2xl:grid-cols-5 grid-cols-4 gap-4 my-4 sm:px-20 md:px-40 px-10">
+      <div className="grid 2xl:grid-cols-5 grid-cols-4 gap-4 my-4 sm:px-20 lg:px-40 px-10">
         <div className="col-span-4">
-          <div className="grid grid-cols-4 gap-4 overflow-hidden">
-            <div className="col-span-1">
+          <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 gap-4 overflow-hidden">
+            <div className="md:col-span-1 col-span-2 sm:block hidden">
               <span
                 className="text-2xl font-bold hover:underline cursor-pointer"
                 onClick={() => goNewLink(feeds[0]?.link)}
@@ -43,19 +43,18 @@ const NewsPage = () => {
             <div className="col-span-2">
               <img
                 onClick={() => goNewLink(feeds[0]?.link)}
-                className="cursor-pointer mb-4 h-full"
+                className="cursor-pointer mb-4"
                 width="100%"
                 src={feeds[0]?.enclosure.link}
                 alt="No Img"
               />
             </div>
             <div className="col-span-1">
-              <div className="w-full">
+              <div className="h-48 w-full overflow-hidden">
                 <img
                   onClick={() => goNewLink(feeds[1]?.link)}
-                  className="cursor-pointer mb-4"
-                  width="100%"
-                  src={feeds[1]?.enclosure.link}
+                  className="cursor-pointer mb-4 w-full min-h-full"
+                  src={feeds[3]?.enclosure.link}
                   alt="No Img"
                 />
               </div>
@@ -87,6 +86,12 @@ const NewsPage = () => {
               >
                 {feeds[2]?.title}
               </span>
+              <br />
+              <span className="text-gray-700">
+                {feeds[2]?.description.length > 100
+                  ? feeds[2]?.description.substr(0, 100) + "..."
+                  : feeds[2]?.description}
+              </span>
             </div>
             <div className="col-span-1">
               <div className="h-48 w-full overflow-hidden">
@@ -102,6 +107,12 @@ const NewsPage = () => {
                 onClick={() => goNewLink(feeds[3]?.link)}
               >
                 {feeds[3]?.title}
+              </span>
+              <br />
+              <span className="text-gray-700">
+                {feeds[3]?.description.length > 100
+                  ? feeds[3]?.description.substr(0, 100) + "..."
+                  : feeds[3]?.description}
               </span>
             </div>
             <div className="col-span-1">
@@ -119,6 +130,12 @@ const NewsPage = () => {
               >
                 {feeds[4]?.title}
               </span>
+              <br />
+              <span className="text-gray-700">
+                {feeds[4]?.description.length > 100
+                  ? feeds[4]?.description.substr(0, 100) + "..."
+                  : feeds[4]?.description}
+              </span>
             </div>
             <div className="col-span-1">
               <div className="h-48 w-full overflow-hidden">
@@ -134,6 +151,12 @@ const NewsPage = () => {
                 onClick={() => goNewLink(feeds[5]?.link)}
               >
                 {feeds[5]?.title}
+              </span>
+              <br />
+              <span className="text-gray-700">
+                {feeds[5]?.description.length > 100
+                  ? feeds[5]?.description.substr(0, 100) + "..."
+                  : feeds[5]?.description}
               </span>
             </div>
           </div>
