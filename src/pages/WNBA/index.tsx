@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { API_SERVER_URL } from "../../config.js";
+import { API_SERVER_URL, API_KEY, WNBA_UUID } from "../../config.js";
 import { FirstAngle, LastAngle } from "../../components/Icons";
 
 const WNBAPage: React.FC = () => {
@@ -13,27 +13,23 @@ const WNBAPage: React.FC = () => {
 
   const getWidgetByPage = (page: number) => {
     setLoading(true);
-    const currentDate = new Date();
-    const now_utc = Date.UTC(
-      currentDate.getUTCFullYear(),
-      currentDate.getUTCMonth(),
-      currentDate.getUTCDate()
-    );
-    let date = new Date(now_utc).toISOString();
+    const date =
+      new Date().getFullYear() +
+      "-" +
+      (new Date().getMonth() + 1) +
+      "-" +
+      new Date().getDate();
+    // const date = "2022-12-25";
     const widgets: any[] = [];
-    const data = {
-      page: page,
-      perPage: perPage,
-      startDate: date,
-    };
     axios
-      .post(`${API_SERVER_URL}/api/wnba/getwidgetbypage`, data)
+      .get(
+        `${API_SERVER_URL}basketball/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${WNBA_UUID}&api_key=${API_KEY}`
+      )
       .then((res) => {
-        setTotalPage(Math.ceil(res.data.totalCount / perPage));
-        setTotalCount(res.data.totalCount);
+        setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
+        setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
-          widgets.push(value.uuid);
-          return true;
+          widgets.push(value.attributes.uuid);
         });
         setWidgetIDs(widgets);
         setLoading(false);
