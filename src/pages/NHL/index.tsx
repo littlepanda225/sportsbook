@@ -29,7 +29,14 @@ const NHLPage: React.FC = () => {
         setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
         setTotalCount(res.data.meta.totalItems);
         res.data.data.map((value: any, key: number) => {
-          widgets.push(value.attributes.uuid);
+          console.log(value.attributes.title);
+          if (
+            value.attributes.eventStatus !== null &&
+            !value.attributes.title.includes("Unknown")
+          ) {
+            widgets.push(value.attributes.uuid);
+          }
+          return true;
         });
         setWidgetIDs(widgets);
         setLoading(false);
