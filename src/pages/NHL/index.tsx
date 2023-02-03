@@ -13,24 +13,26 @@ const NHLPage: React.FC = () => {
 
   const getWidgetByPage = (page: number) => {
     setLoading(true);
-    const date =
-      new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate();
+    const currentDate = new Date();
+    const now_utc = Date.UTC(
+      currentDate.getUTCFullYear(),
+      currentDate.getUTCMonth(),
+      currentDate.getUTCDate()
+    );
+    const date = new Date(now_utc).toISOString();
+    const data = {
+      page: page,
+      perPage: perPage,
+      startDate: date,
+    };
     const widgets: any[] = [];
     axios
-      .get(
-        `${API_SERVER_URL}hockey/v2/events?page=${page}&count=${perPage}&startDate%5Bafter%5D=${date}&order%5BstartDate%5D=asc&league.uuid=${NHL_UUID}&api_key=${API_KEY}`
-      )
+      .post(`${API_SERVER_URL}/api/nhl/getwidgetbypage`, data)
       .then((res) => {
-        setTotalPage(Math.ceil(res.data.meta.totalItems / perPage));
-        setTotalCount(res.data.meta.totalItems);
+        setTotalPage(Math.ceil(res.data.totalCount / perPage));
+        setTotalCount(res.data.totalCount);
         res.data.data.map((value: any, key: number) => {
-          if (value.attributes.eventStatus !== null) {
-            widgets.push(value.attributes.uuid);
-          }
+          widgets.push(value.uuid);
           return true;
         });
         setWidgetIDs(widgets);
