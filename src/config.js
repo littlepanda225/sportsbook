@@ -1,4 +1,5 @@
-export const API_SERVER_URL = 'http://localhost:5000';
+export const API_SERVER_URL = 'http://api.moneylinesportsbook.com:5000';
+// export const API_SERVER_URL = 'http://localhost:5000';
 // export const API_SERVER_URL = 'https://api.quarter4.io/';
 export const API_KEY = "27fbcfe9-0a0b-40ee-9fb7-9494ff337986";
 export const NBA_UUID = "634e7f95-8209-4846-beb5-cf8555f99237";
