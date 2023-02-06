@@ -163,7 +163,7 @@ const NavbarComponent: React.FC = () => {
         <div className="tradingview-widget-container__widget"></div>
         <div className="tradingview-widget-copyright"></div>
       </div>
-      <div className="bg-white mx-auto flex items-center justify-between relative p-2">
+      <div className="bg-white mx-auto flex items-center justify-between relative p-2 overflow-hidden">
         <img
           onClick={() => onLogo()}
           src="/moneyline_sportsbook_logo.png"
