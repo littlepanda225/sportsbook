@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card } from "@material-tailwind/react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import getTimeDifference from "../../utils/getTimeDifference";
 // import Carousel from "./Carousel";
 
 type CustomDotProp = {
@@ -38,7 +39,6 @@ const Home: React.FC = () => {
   const [feeds, setFeeds] = useState<Array<any>>([]);
   const [featuredFeed, setFeaturedFeed] = useState<Array<any>>([]);
   const [topStories, setTopStories] = useState<Array<any>>([]);
-  const [data, setData] = useState<any>({});
 
   useEffect(() => {
     axios
@@ -47,7 +47,6 @@ const Home: React.FC = () => {
       )
       .then((res: any) => {
         setFeeds(res.data.items);
-        setData(res.data.feed);
       })
       .catch((err: any) => {
         console.log(err);
@@ -97,7 +96,7 @@ const Home: React.FC = () => {
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (
-              <Card key={key} className="mb-6 p-2 static">
+              <Card key={key} className="mb-6 p-2 relative">
                 <div className="sm:flex text-center sm:text-left p-4">
                   <div className="h-36 sm:w-1/2 w-full overflow-hidden relative">
                     <img
@@ -106,7 +105,7 @@ const Home: React.FC = () => {
                       alt="Not found img"
                     />
                   </div>
-                  <div className="ml-4 sm:w-1/2 w-full h-36 overflow-hidden">
+                  <div className="sm:ml-4 ml-0 sm:w-1/2 w-full sm:h-36 h-full overflow-hidden">
                     <p
                       className="text-lg hover:underline cursor-pointer text-black"
                       onClick={() => {
@@ -115,9 +114,17 @@ const Home: React.FC = () => {
                     >
                       {val.title}
                     </p>
-                    <p>{val.description}</p>
+                    <p className="sm:block hidden">
+                      {val.description.length > 100
+                        ? val.description.substr(0, 100) + "..."
+                        : val.description}
+                    </p>
                   </div>
                 </div>
+                <div className="mt-2"></div>
+                <span className="ml-4 absolute bottom-0">
+                  {getTimeDifference(val.pubDate)}
+                </span>
               </Card>
             );
           })}
