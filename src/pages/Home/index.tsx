@@ -57,17 +57,8 @@ const Home: React.FC = () => {
         `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
       )
       .then((res) => {
+        console.log(res.data.items);
         setFeaturedFeed(res.data.items);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
-    axios
-      .get(
-        `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.espn.com%2Fespn%2Frss%2Fnews`
-      )
-      .then((res) => {
         setTopStories(res.data.items);
       })
       .catch((err) => {
@@ -92,7 +83,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="">
-      <div className="grid 2xl:grid-cols-4 grid-cols-1 gap-4 my-4 sm:px-20 md:px-40 px-10">
+      <div className="grid xl:grid-cols-4 grid-cols-1 gap-4 my-4 sm:px-20 xl:px-32 px-10">
         <div className="col-span-1">
           {feeds.slice(1, 4).map((val, key) => {
             return (
@@ -179,7 +170,7 @@ const Home: React.FC = () => {
           {featuredFeed.map((val, key) => {
             return (
               <div key={key} className="text-white m-4">
-                <div className="w-full h-80 overflow-hidden relative mb-4">
+                <div className="w-full sm:h-72 h-60 overflow-hidden relative mb-4">
                   <img
                     className="min-h-full w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     src={val.enclosure.link}
