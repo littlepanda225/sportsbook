@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                   </div>
                   <div className="sm:ml-4 ml-0 sm:w-1/2 w-full sm:h-36 h-full overflow-hidden">
                     <p
-                      className="text-lg hover:underline cursor-pointer text-black"
+                      className="font-bold hover:underline cursor-pointer text-gray-700"
                       onClick={() => {
                         goNewLink(val.link);
                       }}
@@ -106,8 +106,8 @@ const Home: React.FC = () => {
                       {val.title}
                     </p>
                     <p className="sm:block hidden">
-                      {val.description.length > 100
-                        ? val.description.substr(0, 100) + "..."
+                      {val.description.length > 70
+                        ? val.description.substr(0, 70) + "..."
                         : val.description}
                     </p>
                   </div>
